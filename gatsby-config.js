@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'React-Contexify',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -17,5 +17,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/components/layout.js")
+        }
+      }
+    }
   ],
 }
