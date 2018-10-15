@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "gatsby";
 
 import styled from 'styled-components';
 
@@ -10,7 +11,8 @@ const Logo = styled.div`
   z-index: 4;
 `;
 
-const Link = styled.a`
+const A = styled(Link)`
+  cursor: pointer;
   text-transform: uppercase;
   padding: 5px 0;
   display: inline-block;
@@ -22,6 +24,9 @@ const Link = styled.a`
   overflow: hidden;
   text-align: center;
   display: block;
+  &:hover{
+    color: #fff;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -33,8 +38,8 @@ const Link = styled.a`
   }
 `;
 
-export default () => (
+export default ({ children }) => (
   <Logo>
-    <Link>Nix</Link>
+    <A to="/" activeStyle={{ color: '#fff' }}>{children}</A>
   </Logo>
 );

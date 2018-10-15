@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { contextMenu } from 'react-contexify';
 
-import { menuIds, square } from '../../utils';
+import { menuIds, square } from '../../../utils';
 import Menu from "./Menu";
 
 export default class extends Component {

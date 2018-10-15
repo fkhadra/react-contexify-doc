@@ -3,7 +3,7 @@ import React from 'react';
 import { Transition } from 'react-spring';
 import styled from "styled-components";
 
-import Emoji from "../Emoji";
+import Emoji from "../../Emoji";
 
 const Ul = styled.ul`
 color: white;

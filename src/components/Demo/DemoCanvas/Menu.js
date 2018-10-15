@@ -1,8 +1,7 @@
 import React from 'react';
-import { Menu, Item, Separator, Submenu } from 'react-contexify';
-import { toast } from 'react-toastify';
+import { Menu, Item } from 'react-contexify';
 
-import Emoji from '../Emoji';
+import Emoji from '../../Emoji';
 
 export default ({ menuId, theme, animation, drawBox }) => (
   <Menu id={menuId} theme={theme} animation={animation}>

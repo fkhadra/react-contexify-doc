@@ -1,36 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from "gatsby";
-const activeClassName = 'nav-item-active';
 
+const activeClassName = 'nav-item-active';
 const StyledLink = styled(Link).attrs({
   activeClassName
 })`
-  display: flex;
-  margin: 10px 0;
+  display: inline-block;
   color: #fff;
-  font-size: 14px;
-  padding: 10px 15px;
-  transition: background-color 0.3s;
+  transition: transform 0.3s;
   &.${activeClassName} {
-    background-color: #9c27b0;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14),
-      0 7px 10px -5px rgba(156, 39, 176, 0.4);
+    color: #bd50ff;
   }
-  &:not(.${activeClassName}):hover {
-    background-color: hsla(0, 0%, 78%, 0.2);
+  &:hover {
     color: #fff;
+    transform: scale(1.155);
   }
 `;
 
 const NavLink = ({
-  to,
-  icon,
-  label
+  children
 }) => (
-  <Link to={to}>
-    <span>{label}</span>
-  </Link>
+  <StyledLink to={children.toLowerCase().replace(/\s/g,'-')}>
+    {children}
+  </StyledLink>
 );
 
 export default NavLink;

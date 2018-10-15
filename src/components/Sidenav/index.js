@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import Fab from './Fab';
+import NavLink from './NavLink';
 
 import { media } from '../../utils';
 
-// import Logo from './Logo';
+import Logo from './Logo';
 
 const Nav = styled.aside`
   width: 100%;
@@ -21,8 +23,9 @@ const Nav = styled.aside`
   z-index: 4;
   ${media.tablet`
     opacity: 1;
-    width: 200px;
+    width: ${props => props.width};
     pointer-events: initial;
+    border-right: 4px solid #bd50ff;
   `};
 `;
 
@@ -32,16 +35,37 @@ const Wrapper = styled.div`
   overflow: auto;
   width: 100%;
   z-index: 4;
-  padding-bottom: 30px;
+  padding: 12px;
+  font-size: 1em;
   & ul {
+    margin-left: 12px;
     list-style: none;
+  }
+  & p {
+    margin: 0;
+    color: #fff;
+    font-weight: bold;
   }
 `;
 
-export default ({ isSidebarOpen, toggleSidebar }) => (
+export default ({ isSidebarOpen, toggleSidebar, navMenu, width }) => (
   <>
-    <Nav isOpen={isSidebarOpen}>
-      <Wrapper>foo</Wrapper>
+    <Nav isOpen={isSidebarOpen} width={width}>
+      <Logo>React-Contexify</Logo>
+      <Wrapper>
+        {navMenu.map(item => (
+          <>
+            <p>{item.title}</p>
+            <ul>
+              {item.menu.map(el => (
+                <li>
+                  <NavLink>{el.label}</NavLink>
+                </li>
+              ))}
+            </ul>
+          </>
+        ))}
+      </Wrapper>
     </Nav>
     <Fab onToggle={toggleSidebar} toggled={isSidebarOpen} />
   </>

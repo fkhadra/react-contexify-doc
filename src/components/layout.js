@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { ToastContainer } from "react-toastify";
 import styled, { css } from 'styled-components';
+
+import { media } from '../utils';
+import navMenu from '../utils/nav-menu';
 
 import Sidenav from './Sidenav';
 import './layout.css';
 import 'milligram/dist/milligram.css';
 
+const SIDENAV_WIDTH = '260px';
+
 const Main = styled.main`
   ${props =>
     props.isSidebarOpen &&
     css`
-      transform: translateX(200px);
+      ${media.tablet`
+      transform: translateX(${props => props.width});
       transition: transform 0.4s;
-      padding-right: 200px;
+      margin-right: ${props => props.width};
+      padding: 0 32px;
+  `};
     `};
 `;
 
@@ -30,16 +36,20 @@ class Layout extends Component {
   render() {
     return (
       <>
-        <Main isSidebarOpen={this.state.isSidebarOpen}>
+        <Main isSidebarOpen={this.state.isSidebarOpen} width={SIDENAV_WIDTH}>
           {this.props.children}
         </Main>
         <Sidenav
+          width={SIDENAV_WIDTH}
+          navMenu={navMenu}
           isSidebarOpen={this.state.isSidebarOpen}
           toggleSidebar={this.toggleSidebar}
         />
+        <ToastContainer />
       </>
     );
   }
 }
 
 export default Layout;
+

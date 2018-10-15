@@ -4,7 +4,7 @@ import { contextMenu } from 'react-contexify';
 
 import List from './List';
 import Menu from './Menu';
-import { demoData, menuIds } from '../../utils';
+import { demoData, menuIds } from '../../../utils';
 
 class DemoList extends Component {
   state = {

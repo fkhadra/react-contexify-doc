@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, Item, Separator, Submenu } from 'react-contexify'
 import { toast } from 'react-toastify'
 
-import Emoji from '../Emoji'
+import Emoji from '../../Emoji'
 
 export default ({
   menuId,
