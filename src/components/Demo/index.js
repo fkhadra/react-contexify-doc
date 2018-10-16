@@ -71,7 +71,6 @@ export default class extends Component {
             </li>
           </Ul>
         <DemoList {...this.state} />
-        <DemoCanvas {...this.state} />
       </>
     );
   }

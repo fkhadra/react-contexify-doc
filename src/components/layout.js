@@ -6,7 +6,7 @@ import { media } from '../utils';
 import navMenu from '../utils/nav-menu';
 
 import Sidenav from './Sidenav';
-import './layout.css';
+
 import 'milligram/dist/milligram.css';
 
 const SIDENAV_WIDTH = '260px';

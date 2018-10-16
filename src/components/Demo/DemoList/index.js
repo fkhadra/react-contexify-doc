@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { toast } from 'react-toastify';
 import { contextMenu } from 'react-contexify';
+import styled from 'styled-components';
 
 import List from './List';
 import Menu from './Menu';
 import { demoData, menuIds } from '../../../utils';
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 class DemoList extends Component {
   state = {
     rows: demoData,
@@ -27,6 +32,8 @@ class DemoList extends Component {
       },
     });
   };
+
+  resetDemo = () => this.setState({ rows: demoData });
 
   deleteRow = ({ props }) => {
     this.setState({
@@ -55,7 +62,9 @@ class DemoList extends Component {
             rows={this.state.rows}
           />
         ) : (
-          <button>Reset Demo</button>
+          <Container>
+            <button onClick={this.resetDemo}>Reset Demo</button>
+          </Container>
         )}
         <Menu
           {...this.props}

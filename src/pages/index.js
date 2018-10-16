@@ -1,29 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 
-import Layout from '../components/layout';
-import { selector } from '../utils';
+import Layout from '../components/Layout'
+import Demo from "../components/Demo";
+import Emoji from "../components/Emoji";
 
-class IndexPage extends Component {
-  state = {
-    event: selector.events[0],
-    theme: selector.themes[0],
-    animation: selector.animations[0],
-  };
+const Title = styled.h1`
+text-align:center;
+`;
 
-  handleSelector = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
+const Subtitle = styled.h4`
+text-align:center;
+`;
 
-  render() {
-    console.log(this.state);
-    return (
-      <Layout>
-       Peace
-      </Layout>
-    );
+const Links = styled.div`
+  display: flex;
+  justify-content: center;
+  & a{
+    margin:20px;
+    width:180px;
   }
-}
+`
 
-export default IndexPage;
+export default () => (
+  <Layout>
+    <Title>React-Contexify</Title>
+    <Subtitle>The easiest way to add a context menu to your react app. No bullshit <Emoji>😲</Emoji>!</Subtitle>
+    <Demo />
+    <Links>
+      <a href="https://github.com/fkhadra/react-contexify" className="button">github</a>
+      <a href="/installation" className="button button-outline">Getting Started</a>
+    </Links>
+  </Layout>
+)

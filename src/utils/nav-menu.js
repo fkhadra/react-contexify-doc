@@ -1,12 +1,12 @@
 export default [
   {
-    title: 'Introduction',
+    title: 'Getting Started',
     menu: [
       {
         label: 'Demo',
       },
       {
-        label: 'Getting Started',
+        label: 'Installation',
       },
     ],
   },
