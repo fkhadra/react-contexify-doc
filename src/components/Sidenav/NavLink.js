@@ -13,7 +13,7 @@ const StyledLink = styled(Link).attrs({
     color: #bd50ff;
   }
   &:hover {
-    color: #fff;
+    color: #bd50ff;
     transform: scale(1.155);
   }
 `;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 import { contextMenu } from 'react-contexify';
 
 import List from './List';
@@ -18,7 +18,7 @@ class DemoList extends Component {
       if (item.id === parseInt(e.currentTarget.dataset.id, 10)) {
         payload = item;
       }
-    })
+    });
     contextMenu.show({
       id: menuIds.table,
       event: e,
@@ -30,12 +30,14 @@ class DemoList extends Component {
 
   deleteRow = ({ props }) => {
     this.setState({
-      rows: this.state.rows.filter(({ id }) => id !== parseInt(props.item.id, 10)),
+      rows: this.state.rows.filter(
+        ({ id }) => id !== parseInt(props.item.id, 10)
+      ),
     });
   };
 
   sendEmail({ props }) {
-    console.log('foo')
+    console.log('foo');
     toast(`Email sent at ${props.item.email}`);
   }
 
@@ -46,11 +48,15 @@ class DemoList extends Component {
   render() {
     return (
       <div>
-        <List
-          {...this.props}
-          eventHandler={this.handleTableMenu}
-          rows={this.state.rows}
-        />
+        {this.state.rows.length > 0 ? (
+          <List
+            {...this.props}
+            eventHandler={this.handleTableMenu}
+            rows={this.state.rows}
+          />
+        ) : (
+          <button>Reset Demo</button>
+        )}
         <Menu
           {...this.props}
           menuId={menuIds.table}

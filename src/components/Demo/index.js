@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import DemoList from './DemoList';
 import DemoCanvas from './DemoCanvas';
@@ -6,6 +7,23 @@ import { selector } from '../../utils';
 
 import 'react-contexify/dist/ReactContexify.css';
 import 'react-toastify/dist/ReactToastify.css';
+
+
+const Ul = styled.ul`
+display: flex;
+justify-content: space-around;
+list-style: none;
+`;
+
+const Select =  ({ name, value, data, onChange }) => (
+  <select name={name} id={name} value={value} onChange={onChange}>
+    {data.map(item => (
+      <option key={item} value={item}>
+        {item}
+      </option>
+    ))}
+  </select>
+);
 
 export default class extends Component {
   state = {
@@ -23,6 +41,35 @@ export default class extends Component {
   render() {
     return (
       <>
+        <Ul>
+            <li>
+              <label htmlFor="event">Event:</label>
+              <Select
+                name="event"
+                value={this.state.event}
+                data={selector.events}
+                onChange={this.handleSelector}
+              />
+            </li>
+            <li>
+              <label htmlFor="theme">Theme:</label>
+              <Select
+                name="theme"
+                value={this.state.theme}
+                data={selector.themes}
+                onChange={this.handleSelector}
+              />
+            </li>
+            <li>
+              <label htmlFor="animation">Animation:</label>
+              <Select
+                name="animation"
+                value={this.state.animation}
+                data={selector.animations}
+                onChange={this.handleSelector}
+              />
+            </li>
+          </Ul>
         <DemoList {...this.state} />
         <DemoCanvas {...this.state} />
       </>

@@ -39,28 +39,28 @@ export const menuIds = {
 
 export const demoData = [{
   "id": 1,
-  "avatar": "https://robohash.org/quisquoodit.jpg?size=50x50&set=set1",
+  "avatar": "/static/tux1.png",
   "firstName": "Roseanna",
   "lastName": "Savil",
   "email": "rsavil0@state.gov",
   "company": "Hoppe, Schoen and Boyle"
 }, {
   "id": 2,
-  "avatar": "https://robohash.org/blanditiisetquisquam.jpg?size=50x50&set=set1",
+  "avatar": "/static/tux2.png",
   "firstName": "Cara",
   "lastName": "Duddan",
   "email": "cduddan1@merriam-webster.com",
   "company": "Kunze-Monahan"
 }, {
   "id": 3,
-  "avatar": "https://robohash.org/quiautet.bmp?size=50x50&set=set1",
+  "avatar": "/static/tux3.png",
   "firstName": "Tobias",
   "lastName": "Maughan",
   "email": "tmaughan2@prnewswire.com",
   "company": "Casper, Schulist and Ryan"
 }, {
   "id": 4,
-  "avatar": "https://robohash.org/assumendaharumpossimus.bmp?size=50x50&set=set1",
+  "avatar": "/static/tux4.png",
   "firstName": "Sammie",
   "lastName": "Mackness",
   "email": "smackness3@discuz.net",
