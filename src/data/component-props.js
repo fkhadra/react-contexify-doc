@@ -38,8 +38,8 @@ const shared = {
 
 
 export const menu = [
-  ...shared.menuId,
-  ...shared.children,
+  {...shared.menuId},
+  {...shared.children},
   {
     name: 'theme',
     required: 'false',
@@ -57,10 +57,10 @@ export const menu = [
   ...shared.style,
 ];
 
-export const iconFont = [...shared.children, ...shared.style];
+export const iconFont = [{...shared.children}, ...shared.style];
 
 export const item = [
-  ...shared.children,
+  {...shared.children},
   {
     name: 'data',
     required: 'false',
@@ -68,7 +68,7 @@ export const item = [
     description:
       'Passed to the `Item` onClick callback. Accessible via `props`',
   },
-  ...shared.disabled,
+  {...shared.disabled},
   {
     name: 'onClick',
     required: 'false',
@@ -86,7 +86,7 @@ export const submenu = [
     type: 'ReactNode',
     description: 'Any valid node which can be rendered',
   },
-  ...shared.children,
+  {...shared.children},
   {
     name: 'arrow',
     required: 'false',
@@ -94,13 +94,13 @@ export const submenu = [
     type: 'ReactNode',
     description: 'Render a custom arrow',
   },
-  ...shared.disabled,
+  {...shared.disabled},
   ...shared.style
 ]
 
 export const provider = [
-  ...shared.menuId,
-  ...shared.children,
+  {...shared.menuId},
+  {...shared.children},
   {
     name: 'component',
     required: 'false',
