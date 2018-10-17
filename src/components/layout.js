@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { ToastContainer } from "react-toastify";
 import styled, { css } from 'styled-components';
+import Prism from "prismjs";
+
+import "prismjs/themes/prism-tomorrow.css";
 
 import { media } from '../utils';
 import navMenu from '../utils/nav-menu';
 
 import Sidenav from './Sidenav';
-
 import 'milligram/dist/milligram.css';
+import "prismjs/themes/prism-tomorrow.css"
 
 const SIDENAV_WIDTH = '260px';
 
@@ -28,6 +31,10 @@ class Layout extends Component {
   state = {
     isSidebarOpen: true,
   };
+
+  componentDidMount(){
+    Prism.highlightAll();
+  }
 
   toggleSidebar = () => {
     this.setState({ isSidebarOpen: !this.state.isSidebarOpen });

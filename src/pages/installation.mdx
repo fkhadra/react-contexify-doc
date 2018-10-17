@@ -2,8 +2,53 @@
 
 ## Installation
 
-```
+Install the library with a package manager of your choice
+
+```sh
 $ yarn add react-contexify
-or
+```
+
+```sh
 $ npm install --save react-contexify
+```
+
+Import the needed components and the stylesheet
+
+```js
+import { ContextMenu, Item, Separator, Submenu, ContextMenuProvider } from 'react-contexify';
+import 'react-contexify/dist/ReactContexify.min.css';
+```
+
+## Usage
+
+```javascript
+import { ContextMenu, Item, Separator, Submenu, ContextMenuProvider } from 'react-contexify';
+import 'react-contexify/dist/ReactContexify.min.css';
+
+const onClick = ({ event, ref, data, dataFromProvider }) => console.log('Hello');
+// create your menu first
+const MyAwesomeMenu = () => (
+    <ContextMenu id='menu_id'>
+       <Item onClick={onClick}>Lorem</Item>
+       <Item onClick={onClick}>Ipsum</Item>
+       <Separator />
+       <Item disabled>Dolor</Item>
+       <Separator />
+       <Submenu label="Foobar">
+        <Item onClick={onClick}>Foo</Item>
+        <Item onClick={onClick}>Bar</Item>
+       </Submenu>
+    </ContextMenu>
+);
+
+const App = () => (
+    <div>
+        <h1>Welcome to My App</h1>
+        <ContextMenuProvider id="menu_id">
+            <div>Some Content ... </div>
+        </ContextMenuProvider>
+        <MyAwesomeMenu />
+    </div>
+);
+
 ```
