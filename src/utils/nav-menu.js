@@ -38,6 +38,7 @@ export default [
   },
   {
     title: 'API Reference',
+    prefix: '/api/',
     menu: [
       {
         label: 'Menu',

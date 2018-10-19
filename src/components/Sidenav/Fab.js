@@ -31,6 +31,9 @@ const Button = styled.button`
   border: 0;
   margin: 4px 0 0 0;
   overflow: visible;
+  &:focus-within{
+    background-color: none;
+  }
   &:hover {
     opacity: 0.7;
   }

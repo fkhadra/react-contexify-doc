@@ -15,7 +15,7 @@ const Nav = styled.aside`
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   background: #212120;
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
     0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
@@ -53,18 +53,23 @@ export default ({ isSidebarOpen, toggleSidebar, navMenu, width }) => (
     <Nav isOpen={isSidebarOpen} width={width}>
       <Logo>React-Contexify</Logo>
       <Wrapper>
-        {navMenu.map(item => (
-          <>
-            <p>{item.title}</p>
-            <ul>
-              {item.menu.map(el => (
-                <li>
-                  <NavLink>{el.label}</NavLink>
-                </li>
-              ))}
-            </ul>
-          </>
-        ))}
+        {navMenu.map(item => {
+          const prefix = item.prefix || '';
+          return (
+            <>
+              <p>{item.title}</p>
+              <ul>
+                {item.menu.map(el => (
+                  <li>
+                    <NavLink to={prefix + el.label.toLowerCase().replace(/\s/g, '-')}>
+                      {el.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </>
+          );
+        })}
       </Wrapper>
     </Nav>
     <Fab onToggle={toggleSidebar} toggled={isSidebarOpen} />

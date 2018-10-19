@@ -19,9 +19,10 @@ const StyledLink = styled(Link).attrs({
 `;
 
 const NavLink = ({
+  to,
   children
 }) => (
-  <StyledLink to={children.toLowerCase().replace(/\s/g,'-')}>
+  <StyledLink to={to  }>
     {children}
   </StyledLink>
 );

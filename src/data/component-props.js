@@ -1,34 +1,34 @@
 const shared = {
   menuId: {
     name: 'id',
-    required: 'true',
+    required: true,
     type: 'string | number',
     description:
       'Unique id to identify the menu. Use to Trigger the corresponding menu',
   },
   children: {
     name: 'children',
-    required: 'true',
+    required: true,
     type: 'ReactNode',
     description: 'Any valid node which can be rendered',
   },
   style: [
     {
       name: 'className',
-      required: 'false',
+      required: false,
       type: 'string',
       description: 'Append given css classes',
     },
     {
       name: 'style',
-      required: 'false',
+      required: false,
       type: 'object',
       description: 'Append given inline style',
     },
   ],
   disabled: {
     name: 'disabled',
-    required: 'false',
+    required: false,
     default: ' false',
     type: 'boolean | (props: MenuItemEventHandler) => boolean',
     description:
@@ -42,14 +42,14 @@ export const menu = [
   {...shared.children},
   {
     name: 'theme',
-    required: 'false',
+    required: false,
     type: 'string',
     description:
       'Theme is appended to `react-contexify__theme--${given theme}`. Built-in theme are `light` and `dark`',
   },
   {
     name: 'animation',
-    required: 'false',
+    required: false,
     type: 'string',
     description:
       'Animation is appended to `.react-contexify__will-enter--${given animation}`. Built-in animations are fade, flip, pop, zoom',
@@ -63,7 +63,7 @@ export const item = [
   {...shared.children},
   {
     name: 'data',
-    required: 'false',
+    required: false,
     type: 'object',
     description:
       'Passed to the `Item` onClick callback. Accessible via `props`',
@@ -71,7 +71,7 @@ export const item = [
   {...shared.disabled},
   {
     name: 'onClick',
-    required: 'false',
+    required: false,
     type: '(props: MenuItemEventHandler) => void',
     description:
       'Callback when the current `Item` is clicked. The callback give you access to the current event and also the data passed to the `Item`.`({ event, props }) => ...`',
@@ -82,14 +82,14 @@ export const item = [
 export const submenu = [
   {
     name: 'label',
-    required: 'true',
+    required: true,
     type: 'ReactNode',
     description: 'Any valid node which can be rendered',
   },
   {...shared.children},
   {
     name: 'arrow',
-    required: 'false',
+    required: false,
     default: '▶',
     type: 'ReactNode',
     description: 'Render a custom arrow',
@@ -103,34 +103,34 @@ export const provider = [
   {...shared.children},
   {
     name: 'component',
-    required: 'false',
+    required: false,
     default: 'div',
     type: 'ReactNode | (args?: any) => ReactNode',
     description: 'Any valid node that can be rendered or a render props',
   },
   {
     name: 'render',
-    required: 'false',
+    required: false,
     type: '(args?: any) => ReactNode',
     description: 'Render props',
   },
   {
     name: 'event',
-    required: 'false',
+    required: false,
     default: 'onContextMenu',
     type: 'ReactEvent',
     description: 'Any react event',
   },
   {
     name: 'storeRef',
-    required: 'false',
-    default: 'true',
+    required: false,
+    default: true,
     type: 'boolean',
     description: 'Store children ref',
   },
   {
     name: 'data',
-    required: 'false',
+    required: false,
     type: 'object',
     description: 'Passed to the `Item` onClick callback. Accessible via `props`',
   }

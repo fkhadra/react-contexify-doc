@@ -11,6 +11,7 @@ import navMenu from '../utils/nav-menu';
 import Sidenav from './Sidenav';
 import 'milligram/dist/milligram.css';
 import "prismjs/themes/prism-tomorrow.css"
+import './index.css';
 
 const SIDENAV_WIDTH = '260px';
 
