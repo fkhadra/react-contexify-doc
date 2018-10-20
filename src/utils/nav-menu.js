@@ -4,6 +4,7 @@ export default [
     menu: [
       {
         label: 'Demo',
+        link: '/'
       },
       {
         label: 'Installation',

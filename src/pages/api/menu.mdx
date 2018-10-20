@@ -2,10 +2,20 @@ import PropTable from '../../components/PropTable';
 import { menu } from '../../data/component-props';
 
 # Menu
----
 
 ## Props
 
 <PropTable of={menu} />
 
 ## Usage
+
+```js
+import { Menu, Item, Separator } from 'react-contexify';
+
+<Menu id="foo">
+    <Item>Foo</Item>
+    <Item disabled>Bar</Item>
+    <Separator />
+    {/* and so on  */}
+</Menu> 
+```

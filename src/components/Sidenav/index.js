@@ -59,13 +59,16 @@ export default ({ isSidebarOpen, toggleSidebar, navMenu, width }) => (
             <>
               <p>{item.title}</p>
               <ul>
-                {item.menu.map(el => (
-                  <li>
-                    <NavLink to={prefix + el.label.toLowerCase().replace(/\s/g, '-')}>
-                      {el.label}
-                    </NavLink>
-                  </li>
-                ))}
+                {item.menu.map(el => {
+                  const link = el.link || el.label.toLowerCase().replace(/\s/g, '-');
+                  return (
+                    <li>
+                      <NavLink to={prefix + link}>
+                        {el.label}
+                      </NavLink>
+                    </li>
+                  )
+                })}
               </ul>
             </>
           );

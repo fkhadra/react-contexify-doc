@@ -1,6 +1,30 @@
 import PropTable from '../../components/PropTable';
+import Playground from "../../components/Playground";
 import { item } from '../../data/component-props';
+const code = `
+  render(<button>Foo</button>)
+`
 
 # Item
 
+## Props
+
 <PropTable of={item} />
+
+## Usage
+
+<Playground code={code}/>
+
+
+```js
+import { Menu, Item } from 'react-contexify';
+
+function handleClick({ event, props }){
+  console.log(event, props)
+}
+
+<Menu id="foo">
+  <Item onClick={handleClick}>Foo</Item>
+  <Item disabled>Bar</Item>
+</Menu>
+```
