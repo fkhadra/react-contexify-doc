@@ -1,6 +1,5 @@
 import React from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import styled from "styled-components";
 import {
   Item,
   Menu,
@@ -8,7 +7,8 @@ import {
   animation,
   Separator,
   Submenu,
-  MenuProvider
+  MenuProvider,
+  contextMenu
 } from 'react-contexify';
 
 const scope = {
@@ -18,7 +18,8 @@ const scope = {
   animation,
   Separator,
   Submenu,
-  MenuProvider
+  MenuProvider,
+  contextMenu
 };
 
 export default ({ code }) => (

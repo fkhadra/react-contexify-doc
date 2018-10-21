@@ -22,7 +22,7 @@ const NavLink = ({
   to,
   children
 }) => (
-  <StyledLink to={to  }>
+  <StyledLink to={to}>
     {children}
   </StyledLink>
 );

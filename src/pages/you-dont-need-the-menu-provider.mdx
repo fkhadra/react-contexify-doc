@@ -1,0 +1,15 @@
+import Playground from "../components/Playground";
+import { youDontNeedTheMenuProvider } from "../data/playground";
+
+# You don't need the MenuProvider
+
+The `MenuProvider` component is fine but most of the time you may need more control. When it happens rely on the
+`contextMenu` helper instead.
+
+```js
+import { contextMenu } from 'react-contexify';
+```
+
+Typical use case, you want to display the menu only for a specific element inside a canvas. 
+
+<Playground code={youDontNeedTheMenuProvider} />

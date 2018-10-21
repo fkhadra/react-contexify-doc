@@ -24,6 +24,12 @@ export default [
         label: 'Change the submenu arrow',
       },
       {
+        label: 'Menu Provider',
+      },
+      {
+        label: "You don't need the Menu Provider"
+      },
+      {
         label: 'The onClick event hanlder',
       },
       {
