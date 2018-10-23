@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'React-Contexify',
   },
+  pathPrefix: "/react-contexify",
   plugins: [
     'gatsby-plugin-react-helmet',
     {
