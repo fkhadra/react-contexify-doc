@@ -237,3 +237,103 @@ class Canvas extends React.Component{
 
 render(<Canvas />)
 `;
+
+export const theOnClickEventHandler = `
+const onClick = ({ event, props }) => {
+  alert(JSON.stringify({ 
+    x: event.clientX, 
+    msg: props.msg 
+  }, null, 2)
+    );
+}
+
+const MyMenu = () => (
+  <Menu id='menu_id'>
+    <Item onClick={onClick}>Click Me</Item>
+  </Menu>
+  );
+
+  function handleEvent(e){
+    e.preventDefault();
+    contextMenu.show({
+      id: 'menu_id',
+      event: e,
+      props: {
+        msg: 'hello'
+      }
+    });
+  }
+  
+  const App = () => (
+    <span onContextMenu={handleEvent}>
+      Right click me...
+      <MyMenu />
+    </span>
+  );
+  render(<App />);
+`;
+
+export const leStyle = `
+// try to use theme.light and animation.pop for instance
+
+const MyMenu = () => (
+  <Menu id='menu_id' theme={theme.dark} animation={animation.zoom}>
+    <Item>Copy</Item>
+    <Separator />
+    <Item>Paste</Item>
+    <Item>Cut</Item>
+  </Menu>
+  );
+  
+  const App = () => (
+    <div>
+        <MenuProvider id="menu_id" component="span" >
+            Right click me...
+        </MenuProvider>
+        <MyMenu />
+    </div>
+  );
+  
+  render(<App />);
+`;
+
+export const contextMenuShow = `
+const menuId = 'thisIsAnId';
+
+const MyMenu = () => (
+  <Menu id={menuId}>
+    <Item>Copy</Item>
+    <Separator />
+    <Item>Paste</Item>
+    <Item>Cut</Item>
+  </Menu>
+  );
+
+  const handleEvent = e => {
+    e.preventDefault();
+    contextMenu.show({
+      id: menuId,
+      event: e,
+      props: {
+        foo: 'bar'
+      }
+    });
+  };
+
+  const divStyle = { 
+    width: '100px',
+    height: '100px',
+    border: '1px solid'
+  };
+  
+  const App = () => (
+    <div>
+        <div onContextMenu={handleEvent} style={divStyle}>
+            Right click me...
+        </div>
+        <MyMenu />
+    </div>
+  );
+  
+  render(<App />);
+`;

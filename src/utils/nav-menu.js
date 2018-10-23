@@ -7,7 +7,7 @@ export default [
         link: '/'
       },
       {
-        label: 'Installation',
+        label: 'Installation and Usage',
       },
     ],
   },
@@ -30,17 +30,11 @@ export default [
         label: "You don't need the Menu Provider"
       },
       {
-        label: 'The onClick event hanlder',
+        label: 'The onClick event handler',
       },
       {
         label: 'Le style!',
-      },
-      {
-        label: 'Use the built-in theme',
-      },
-      {
-        label: 'Use the built-in animation',
-      },
+      }
     ],
   },
   {
@@ -63,7 +57,11 @@ export default [
         label: 'IconFont',
       },
       {
-        label: 'Provider',
+        label: 'MenuProvider',
+      },
+      {
+        label: 'ContextMenu',
+        link: 'context-menu'
       },
       {
         label: 'Theme and Animation',

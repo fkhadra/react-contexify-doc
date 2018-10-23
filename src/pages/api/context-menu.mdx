@@ -1,0 +1,22 @@
+import PropTable from '../../components/PropTable';
+import { contextMenu } from '../../data/component-props';
+import Playground from "../../components/Playground";
+import { contextMenuShow } from "../../data/playground";
+
+# ContextMenu 
+
+The `contextMenu` expose two methods: `show` and `hide`. 
+
+The `show` method give you more control than the `MenuProvider`. I even recommend that you build your own 
+`MenuProvider`.
+
+Just don't forget to call `e.preventDefault` especially when using `onContextMenu` event.
+
+## Show Api
+<PropTable of={contextMenu} />
+
+```js
+import { contextMenu } from 'react-contexify';
+```
+
+<Playground code={contextMenuShow} />

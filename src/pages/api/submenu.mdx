@@ -4,3 +4,14 @@ import { submenu } from '../../data/component-props';
 # Submenu
 
 <PropTable of={submenu} />
+
+```js
+import { Menu, Item, Submenu } from "react-contexify";
+
+<Menu id='foo'>
+  <Item>Foo</Item>
+  <Submenu label="Unimenu" arrow="🦄">
+    <Item>Bar</Item>
+  </Submenu>
+</Menu>
+```

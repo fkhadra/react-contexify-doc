@@ -30,7 +30,7 @@ const shared = {
     name: 'disabled',
     required: false,
     default: ' false',
-    type: 'boolean | (props: MenuItemEventHandler) => boolean',
+    type: 'boolean | (params: { event, props }) => boolean',
     description:
       'Disable or not the `Item`. If a function is used, a boolean must be returned',
   }
@@ -57,7 +57,7 @@ export const menu = [
   ...shared.style,
 ];
 
-export const iconFont = [{...shared.children}, ...shared.style];
+export const iconFont = [{...shared.children, required: false}, ...shared.style];
 
 export const item = [
   {...shared.children},
@@ -72,7 +72,7 @@ export const item = [
   {
     name: 'onClick',
     required: false,
-    type: '(props: MenuItemEventHandler) => void',
+    type: '(params: { event, props }) => void',
     description:
       'Callback when the current `Item` is clicked. The callback give you access to the current event and also the data passed to the `Item`.`({ event, props }) => ...`',
   },
@@ -135,3 +135,19 @@ export const provider = [
     description: 'Passed to the `Item` onClick callback. Accessible via `props`',
   }
 ];
+
+export const contextMenu = [
+  {...shared.menuId},
+  {
+    name: 'event',
+    required: true,
+    type: 'HTMLEvent',
+    description: 'The event used to display the menu',
+  },
+  {
+    name: 'props',
+    required: false,
+    type: 'object',
+    description: 'Passed to the `Item` onClick callback. Accessible via `props`',
+  }
+]

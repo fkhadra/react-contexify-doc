@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import Fab from './Fab';
 import NavLink from './NavLink';
 
@@ -60,7 +59,7 @@ export default ({ isSidebarOpen, toggleSidebar, navMenu, width }) => (
               <p>{item.title}</p>
               <ul>
                 {item.menu.map(el => {
-                  const link = el.link || el.label.toLowerCase().replace("'",'').replace(/\s/g, '-');
+                  const link = el.link || el.label.toLowerCase().replace(/\'|\!/,'').replace(/\s/g, '-');
                   return (
                     <li>
                       <NavLink to={prefix + link}>
