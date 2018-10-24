@@ -29,7 +29,7 @@ export default () => (
     <Demo />
     <Links>
       <a href="https://github.com/fkhadra/react-contexify" className="button">github</a>
-      <a href="/installation" className="button button-outline">Getting Started</a>
+      <a href="/installation-and-usage" className="button button-outline">Getting Started</a>
     </Links>
   </Layout>
 )
