@@ -18,7 +18,7 @@ const SIDENAV_WIDTH = '260px';
 const GlobalSwag = createGlobalStyle`
 h1{
   color: #b561b7;
-  font-weight: bold;
+  font-weight: bold !important; /* wait what ?? 👌 */
 }
 
 @media (min-width: 48em) {
