@@ -22,7 +22,7 @@ const Nav = styled.aside`
   z-index: 4;
   ${media.tablet`
     opacity: 1;
-    width: ${props => props.width};
+    width: ${props => props.sidenavWidth};
     pointer-events: initial;
     border-right: 4px solid #bd50ff;
   `};
@@ -47,9 +47,9 @@ const Wrapper = styled.div`
   }
 `;
 
-export default ({ isSidebarOpen, toggleSidebar, navMenu, width }) => (
+export default ({ isSidebarOpen, toggleSidebar, navMenu, sidenavWidth }) => (
   <>
-    <Nav isOpen={isSidebarOpen} width={width}>
+    <Nav isOpen={isSidebarOpen} sidenavWidth={sidenavWidth}>
       <Logo>React-Contexify</Logo>
       <Wrapper>
         {navMenu.map(item => {

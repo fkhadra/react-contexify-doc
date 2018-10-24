@@ -8,7 +8,6 @@ import navMenu from '../data/nav-menu';
 
 import Sidenav from './Sidenav';
 
-import 'milligram/dist/milligram.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'react-contexify/dist/ReactContexify.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,7 +17,7 @@ const SIDENAV_WIDTH = '260px';
 const GlobalSwag = createGlobalStyle`
 h1{
   color: #b561b7;
-  font-weight: bold !important; /* wait what ?? 👌 */
+  font-weight: bold;
 }
 
 @media (min-width: 48em) {
@@ -40,9 +39,9 @@ const Main = styled.main`
     props.isSidebarOpen &&
     css`
       ${media.tablet`
-      transform: translateX(${props => props.width});
+      transform: translateX(${props => props.sidenavWidth});
       transition: transform 0.4s;
-      margin-right: ${props => props.width};
+      margin-right: ${props => props.sidenavWidth};
       padding: 0 32px;
   `};
     `};
@@ -64,11 +63,11 @@ class Layout extends Component {
   render() {
     return (
       <>
-        <Main isSidebarOpen={this.state.isSidebarOpen} width={SIDENAV_WIDTH}>
+        <Main isSidebarOpen={this.state.isSidebarOpen} sidenavWidth={SIDENAV_WIDTH}>
           {this.props.children}
         </Main>
         <Sidenav
-          width={SIDENAV_WIDTH}
+          sidenavWidth={SIDENAV_WIDTH}
           navMenu={navMenu}
           isSidebarOpen={this.state.isSidebarOpen}
           toggleSidebar={this.toggleSidebar}

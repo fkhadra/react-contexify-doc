@@ -25,6 +25,9 @@ module.exports = {
           default: require.resolve('./src/components/Layout.js')
         }
       }
+    },
+    {
+      resolve: 'gatsby-plugin-styled-components'
     }
   ]
 };

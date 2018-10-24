@@ -6,7 +6,6 @@ branch="gh-pages"
 rm -rf repocache
 
 git clone --single-branch -b $branch $repository repocache
-rm -rf repocache/*
 rsync -avz public/ repocache/
 cd repocache
 
