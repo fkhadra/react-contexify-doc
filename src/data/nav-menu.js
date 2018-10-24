@@ -8,6 +8,9 @@ export default [
       },
       {
         label: 'Installation and Usage'
+      },
+      {
+        label: 'Migrate from v3'
       }
     ]
   },

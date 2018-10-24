@@ -1,0 +1,16 @@
+# Migrate from v3
+
+- `ContextMenu` has been renamed to `Menu`
+- `ContextMenuProvider` has been renamed to `MenuProvider`
+- The `onClick` callback signature has been simplified. The `data` and the `ref` are merged to props.
+
+```js
+// Old signature
+({ event, ref, data, dataFromProvider }) => void;
+
+// New one
+({ event, props }) => void;
+```
+
+- The `MenuProvider` is limited a new api has been introduced to give more control. Please check the usage [here](/you-dont-need-the-menu-provider). The `contextMenu` helper
+is a game changer.

@@ -5,7 +5,7 @@ import { contextMenuShow } from "../../data/playground";
 
 # ContextMenu 
 
-The `contextMenu` expose two methods: `show` and `hide`. 
+The `contextMenu` expose two methods: `show` and `hideAll`. 
 
 The `show` method give you more control than the `MenuProvider`. I even recommend that you build your own 
 `MenuProvider`.
@@ -20,3 +20,11 @@ import { contextMenu } from 'react-contexify';
 ```
 
 <Playground code={contextMenuShow} />
+
+## HideAll Api
+
+The `hideAll` method don't take any argument.
+
+```js
+contextMenu.hideAll();
+```
