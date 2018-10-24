@@ -18,7 +18,7 @@ const MyAwesomeMenu = () => (
 
 const App = () => (
     <div>
-        <MenuProvider id="menu_id" style={{ border: '1px solid', display: 'inline-block' }}>
+        <MenuProvider id="menu_id" style={{ border: '1px solid purple', display: 'inline-block' }}>
             Right click me...
         </MenuProvider>
         <MyAwesomeMenu />
@@ -323,7 +323,7 @@ const MyMenu = () => (
   const divStyle = { 
     width: '100px',
     height: '100px',
-    border: '1px solid'
+    border: '1px solid purple'
   };
   
   const App = () => (
