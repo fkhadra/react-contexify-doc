@@ -1,0 +1,17 @@
+import PropTable from '../../components/PropTable';
+import Playground from "../../components/Playground";
+import { item } from '../../data/component-props';
+const code=`import { Item } from 'react-contexify';`
+
+# Item
+
+<PropTable of={item} />
+
+```js
+import { Item, Menu } from 'react-contexify';
+
+<Menu id="foo">
+  <Item onClick={doSomething}>Hello</Item>
+  <Item disabled>Disabled</Item>
+</Menu>
+```

@@ -1,51 +1,80 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React, { Component } from 'react';
+import { ToastContainer } from 'react-toastify';
+import styled, { css, createGlobalStyle } from 'styled-components';
+import Prism from 'prismjs';
 
-import Header from './header'
-import './layout.css'
+import { media } from '../utils';
+import navMenu from '../data/nav-menu';
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
-          {children}
-        </div>
-      </>
-    )}
-  />
-)
+import Sidenav from './Sidenav';
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+import 'milligram/dist/milligram.css';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'react-contexify/dist/ReactContexify.css';
+import 'react-toastify/dist/ReactToastify.css';
+
+const SIDENAV_WIDTH = '260px';
+
+const GlobalSwag = createGlobalStyle`
+h1{
+  color: #b561b7;
+  font-weight: bold !important; /* wait what ?? 👌 */
 }
 
-export default Layout
+@media (min-width: 48em) {
+  .react-live{
+    display: flex;
+  }
+  
+  .react-live-preview, .react-live > .prism-code {
+    width: 100%;
+  }
+}
+`;
+
+const Main = styled.main`
+  ${props =>
+    props.isSidebarOpen &&
+    css`
+      ${media.tablet`
+      transform: translateX(${props => props.width});
+      transition: transform 0.4s;
+      margin-right: ${props => props.width};
+      padding: 0 32px;
+  `};
+    `};
+`;
+
+class Layout extends Component {
+  state = {
+    isSidebarOpen: true
+  };
+
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+
+  toggleSidebar = () => {
+    this.setState({ isSidebarOpen: !this.state.isSidebarOpen });
+  };
+
+  render() {
+    return (
+      <>
+        <Main isSidebarOpen={this.state.isSidebarOpen} width={SIDENAV_WIDTH}>
+          {this.props.children}
+        </Main>
+        <Sidenav
+          width={SIDENAV_WIDTH}
+          navMenu={navMenu}
+          isSidebarOpen={this.state.isSidebarOpen}
+          toggleSidebar={this.toggleSidebar}
+        />
+        <GlobalSwag />
+        <ToastContainer />
+      </>
+    );
+  }
+}
+
+export default Layout;

@@ -1,0 +1,24 @@
+import PropTable from '../../components/PropTable';
+import { iconFont } from '../../data/component-props';
+
+# IconFont
+
+<PropTable of={iconFont} />
+
+```js
+import { IconFont, Menu, Item } from 'react-contexify';
+
+//example with Font Awesome 
+<Menu id="foo">
+  <Item>
+      <IconFont className="fa fa-trash"/>Delete
+  </Item>
+</Menu>
+
+//example with material icons
+<Menu id="foo">
+  <Item>
+      <IconFont className="material-icons">remove_circle</IconFont>Delete
+  <Item>
+</Menu>  
+```

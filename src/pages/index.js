@@ -1,15 +1,35 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import styled from 'styled-components';
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
+import Demo from "../components/Demo";
+import Emoji from "../components/Emoji";
 
-const IndexPage = () => (
+const Title = styled.h1`
+text-align:center;
+`;
+
+const Subtitle = styled.h4`
+text-align:center;
+`;
+
+const Links = styled.div`
+  display: flex;
+  justify-content: center;
+  & a{
+    margin:20px;
+    width:180px;
+  }
+`
+
+export default () => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Title>React-Contexify</Title>
+    <Subtitle>The easiest way to add a context menu to your react app. No bullshit <Emoji>😲</Emoji>!</Subtitle>
+    <Demo />
+    <Links>
+      <a href="https://github.com/fkhadra/react-contexify" className="button">github</a>
+      <a href="/installation-and-usage" className="button button-outline">Getting Started</a>
+    </Links>
   </Layout>
 )
-
-export default IndexPage

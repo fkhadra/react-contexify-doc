@@ -1,0 +1,9 @@
+import Playground from '../components/Playground';
+import { disabledItem } from '../data/playground';
+
+# Disable a menu item
+
+You can disable an `Item` by passing a boolean or a function. 
+When a function is used, a boolean must be returned. The callback has access to the same parameter as the `onClick` callback.
+
+<Playground code={disabledItem}/>

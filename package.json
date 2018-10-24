@@ -1,36 +1,45 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "react-contexify-doc",
+  "description": "React-contexify documentation",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Fadi Khadra <fdkhadra@gmail.com>",
   "dependencies": {
+    "@mdx-js/mdx": "^0.15.5",
+    "@mdx-js/tag": "^0.15.0",
     "gatsby": "^2.0.19",
+    "gatsby-mdx": "^0.2.0",
     "gatsby-plugin-manifest": "^2.0.5",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-remark-prismjs": "^3.0.2",
+    "gatsby-transformer-remark": "^2.1.7",
+    "milligram": "^1.3.0",
+    "prismjs": "^1.15.0",
     "react": "^16.5.1",
     "react-contexify": "file:/Users/gugu/works/react-contexify",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
+    "react-live": "^1.11.0",
     "react-spring": "^5.9.2",
     "react-toastify": "^4.4.0",
-    "styled-components": "^3.4.10"
+    "styled-components": "^4.0.2"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "prettier": "^1.14.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/fkhadra/react-contexify-doc"
   }
 }

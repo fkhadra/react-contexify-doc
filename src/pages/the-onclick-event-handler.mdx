@@ -1,0 +1,26 @@
+import Playground from "../components/Playground";
+import { theOnClickEventHandler } from "../data/playground";
+
+# The onClick event handler
+
+The `onClick` callback of the `Item` component gives you access to an object with 2 properties, `event` and `props`.
+
+- The `event` property refers to the native event which triggered the menu. It can be used to access the mouse coordinate or any other event prop.
+- The `props` property will merge `data` passed to `Item` and `MenuProvider`.
+
+## With MenuProvider
+
+With the `MenuProvider` the `props` object will contains a `ref` property.
+- If you wrap a single react component ref will be the mounted instance of the wrapped component.
+- If you wrap more than one component ref will be an array containing a ref of every component.
+
+## With contextMenu
+
+With the `contextMenu` helper you do what you want!
+
+<Playground code={theOnClickEventHandler} />
+
+
+
+
+
