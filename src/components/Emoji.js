@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export default styled.span.attrs({
-  role: "img",
-  'aria-label': "action"
+  role: 'img',
+  'aria-label': 'action'
 })`
-margin-right: 8px;
+  margin-right: 8px;
 `;

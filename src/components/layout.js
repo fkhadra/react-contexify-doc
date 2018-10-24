@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
-import { ToastContainer } from "react-toastify";
-import styled, { css } from 'styled-components';
-import Prism from "prismjs";
-
-import "prismjs/themes/prism-tomorrow.css";
+import { ToastContainer } from 'react-toastify';
+import styled, { css, createGlobalStyle } from 'styled-components';
+import Prism from 'prismjs';
 
 import { media } from '../utils';
-import navMenu from '../utils/nav-menu';
+import navMenu from '../data/nav-menu';
 
 import Sidenav from './Sidenav';
+
 import 'milligram/dist/milligram.css';
-import "prismjs/themes/prism-tomorrow.css"
-import './index.css';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'react-contexify/dist/ReactContexify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SIDENAV_WIDTH = '260px';
+
+const GlobalSwag = createGlobalStyle`
+h1{
+  color: #b561b7;
+  font-weight: bold;
+}
+
+@media (min-width: 48em) {
+  .react-live{
+    display: flex;
+  }
+  
+  .react-live-preview, .react-live > .prism-code {
+    width: 100%;
+  }
+}
+`;
 
 const Main = styled.main`
   ${props =>
@@ -30,10 +47,10 @@ const Main = styled.main`
 
 class Layout extends Component {
   state = {
-    isSidebarOpen: true,
+    isSidebarOpen: true
   };
 
-  componentDidMount(){
+  componentDidMount() {
     Prism.highlightAll();
   }
 
@@ -53,6 +70,7 @@ class Layout extends Component {
           isSidebarOpen={this.state.isSidebarOpen}
           toggleSidebar={this.toggleSidebar}
         />
+        <GlobalSwag />
         <ToastContainer />
       </>
     );
@@ -60,4 +78,3 @@ class Layout extends Component {
 }
 
 export default Layout;
-

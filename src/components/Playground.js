@@ -22,10 +22,10 @@ const scope = {
   contextMenu
 };
 
-export default ({ code, preview = true }) => (
+export default ({ code }) => (
   <LiveProvider code={code} scope={scope} noInline>
     <LiveEditor />
     <LiveError />
-{ preview && <LivePreview /> }
+    <LivePreview />
   </LiveProvider>
 );

@@ -5,15 +5,18 @@ import styled from 'styled-components';
 
 import List from './List';
 import Menu from './Menu';
-import { demoData, menuIds } from '../../../utils';
+import demoData from '../../data/demo-data';
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
 `;
-class DemoList extends Component {
+
+export default class extends Component {
+  menuId = 'imateapot';
+
   state = {
-    rows: demoData,
+    rows: demoData
   };
 
   handleTableMenu = e => {
@@ -25,11 +28,11 @@ class DemoList extends Component {
       }
     });
     contextMenu.show({
-      id: menuIds.table,
+      id: this.menuId,
       event: e,
       props: {
-        item: payload,
-      },
+        item: payload
+      }
     });
   };
 
@@ -39,12 +42,11 @@ class DemoList extends Component {
     this.setState({
       rows: this.state.rows.filter(
         ({ id }) => id !== parseInt(props.item.id, 10)
-      ),
+      )
     });
   };
 
   sendEmail({ props }) {
-    console.log('foo');
     toast(`Email sent at ${props.item.email}`);
   }
 
@@ -68,7 +70,7 @@ class DemoList extends Component {
         )}
         <Menu
           {...this.props}
-          menuId={menuIds.table}
+          menuId={this.menuId}
           throwAlert={this.throwAlert}
           deleteRow={this.deleteRow}
           sendEmail={this.sendEmail}
@@ -77,5 +79,3 @@ class DemoList extends Component {
     );
   }
 }
-
-export default DemoList;

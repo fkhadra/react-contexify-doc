@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
 
 const activeClassName = 'nav-item-active';
 const StyledLink = styled(Link).attrs({
@@ -18,13 +18,8 @@ const StyledLink = styled(Link).attrs({
   }
 `;
 
-const NavLink = ({
-  to,
-  children
-}) => (
-  <StyledLink to={to}>
-    {children}
-  </StyledLink>
+const NavLink = ({ to, children }) => (
+  <StyledLink to={to}>{children}</StyledLink>
 );
 
 export default NavLink;

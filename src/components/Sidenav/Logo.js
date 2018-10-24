@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
 
 import styled from 'styled-components';
 
@@ -24,7 +24,7 @@ const A = styled(Link)`
   overflow: hidden;
   text-align: center;
   display: block;
-  &:hover{
+  &:hover {
     color: #fff;
   }
   &::after {
@@ -40,6 +40,8 @@ const A = styled(Link)`
 
 export default ({ children }) => (
   <Logo>
-    <A to="/" activeStyle={{ color: '#fff' }}>{children}</A>
+    <A to="/" activeStyle={{ color: '#fff' }}>
+      {children}
+    </A>
   </Logo>
 );

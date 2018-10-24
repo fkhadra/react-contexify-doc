@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
+
 import Fab from './Fab';
 import NavLink from './NavLink';
+import Logo from './Logo';
 
 import { media } from '../../utils';
-
-import Logo from './Logo';
 
 const Nav = styled.aside`
   width: 100%;
@@ -55,21 +55,24 @@ export default ({ isSidebarOpen, toggleSidebar, navMenu, width }) => (
         {navMenu.map(item => {
           const prefix = item.prefix || '';
           return (
-            <>
+            <Fragment key={item.title}>
               <p>{item.title}</p>
               <ul>
                 {item.menu.map(el => {
-                  const link = el.link || el.label.toLowerCase().replace(/\'|\!/,'').replace(/\s/g, '-');
+                  const link =
+                    el.link ||
+                    el.label
+                      .toLowerCase()
+                      .replace(/\'|\!/, '')
+                      .replace(/\s/g, '-');
                   return (
-                    <li>
-                      <NavLink to={prefix + link}>
-                        {el.label}
-                      </NavLink>
+                    <li key={link}>
+                      <NavLink to={prefix + link}>{el.label}</NavLink>
                     </li>
-                  )
+                  );
                 })}
               </ul>
-            </>
+            </Fragment>
           );
         })}
       </Wrapper>

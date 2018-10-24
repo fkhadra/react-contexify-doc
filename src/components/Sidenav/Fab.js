@@ -31,7 +31,7 @@ const Button = styled.button`
   border: 0;
   margin: 4px 0 0 0;
   overflow: visible;
-  &:focus-within{
+  &:focus-within {
     background-color: none;
   }
   &:hover {
@@ -102,10 +102,7 @@ const InnerButton = styled.div`
   }
 `;
 
-const Fab = ({
-  toggled,
-  onToggle
-}) => (
+const Fab = ({ toggled, onToggle }) => (
   <Container>
     <Button onClick={onToggle}>
       <OutterButton>

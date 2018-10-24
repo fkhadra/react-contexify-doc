@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Emoji from './Emoji';
 
 const Table = styled.table`
