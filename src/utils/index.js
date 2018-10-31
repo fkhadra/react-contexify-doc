@@ -1,6 +1,8 @@
 import { theme, animation } from 'react-contexify';
 import { css } from 'styled-components';
 
+const pxToEm = px => px / 16;
+
 const sizes = {
   giant: 1170,
   desktop: 992,
@@ -8,8 +10,9 @@ const sizes = {
   phone: 376
 };
 
+// the copy pasta god 💩...
 export const media = Object.keys(sizes).reduce((accumulator, label) => {
-  const emSize = sizes[label] / 16;
+  const emSize = pxToEm(sizes[label]);
   accumulator[label] = (...args) => css`
     @media (min-width: ${emSize}em) {
       ${css(...args)};
@@ -17,6 +20,8 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
   `;
   return accumulator;
 }, {});
+
+export const isMobile = () => !window.matchMedia(`(min-width: ${pxToEm(sizes.tablet)}em)`).matches;
 
 export const selector = {
   events: ['onContextMenu', 'onClick', 'onDoubleClick'],
