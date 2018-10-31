@@ -47,36 +47,50 @@ const Wrapper = styled.div`
   }
 `;
 
-export default ({ isSidebarOpen, toggleSidebar, navMenu, sidenavWidth }) => (
-  <>
-    <Nav isOpen={isSidebarOpen} sidenavWidth={sidenavWidth}>
-      <Logo>React-Contexify</Logo>
-      <Wrapper>
-        {navMenu.map(item => {
-          const prefix = item.prefix || '';
-          return (
-            <Fragment key={item.title}>
-              <p>{item.title}</p>
-              <ul>
-                {item.menu.map(el => {
-                  const link =
-                    el.link ||
-                    el.label
-                      .toLowerCase()
-                      .replace(/\'|\!/, '')
-                      .replace(/\s/g, '-');
-                  return (
-                    <li key={link}>
-                      <NavLink to={prefix + link}>{el.label}</NavLink>
-                    </li>
-                  );
-                })}
-              </ul>
-            </Fragment>
-          );
-        })}
-      </Wrapper>
-    </Nav>
-    <Fab onToggle={toggleSidebar} toggled={isSidebarOpen} />
-  </>
-);
+export default ({
+  isSidebarOpen,
+  toggleSidebar,
+  navMenu,
+  sidenavWidth,
+  isMobile
+}) => {
+  return (
+    <>
+      <Nav isOpen={isSidebarOpen} sidenavWidth={sidenavWidth}>
+        <Logo>React-Contexify</Logo>
+        <Wrapper>
+          {navMenu.map(item => {
+            const prefix = item.prefix || '';
+            return (
+              <Fragment key={item.title}>
+                <p>{item.title}</p>
+                <ul>
+                  {item.menu.map(el => {
+                    const link =
+                      el.link ||
+                      el.label
+                        .toLowerCase()
+                        .replace(/\'|\!/, '')
+                        .replace(/\s/g, '-');
+
+                    return (
+                      <li key={link}>
+                        <NavLink
+                          to={prefix + link}
+                          {...isMobile && { onClick: toggleSidebar }}
+                        >
+                          {el.label}
+                        </NavLink>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </Fragment>
+            );
+          })}
+        </Wrapper>
+      </Nav>
+      <Fab onToggle={toggleSidebar} toggled={isSidebarOpen} />
+    </>
+  );
+};

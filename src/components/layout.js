@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import Prism from 'prismjs';
 
-import { media } from '../utils';
+import { media, isMobile } from '../utils';
 import navMenu from '../data/nav-menu';
 
 import Sidenav from './Sidenav';
@@ -13,6 +13,7 @@ import 'react-contexify/dist/ReactContexify.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SIDENAV_WIDTH = '260px';
+const IS_MOBILE = isMobile();
 
 const GlobalSwag = createGlobalStyle`
 h1{
@@ -35,6 +36,7 @@ h1{
 `;
 
 const Main = styled.main`
+  overflow: auto;
   ${props =>
     props.isSidebarOpen &&
     css`
@@ -49,11 +51,23 @@ const Main = styled.main`
 
 class Layout extends Component {
   state = {
-    isSidebarOpen: true
+    isSidebarOpen: IS_MOBILE ? false : true,
+    isMobile: IS_MOBILE
+  };
+
+  isMobile = () => {
+    this.setState({
+      isMobile: isMobile()
+    });
   };
 
   componentDidMount() {
     Prism.highlightAll();
+    window.addEventListener('resize', this, isMobile);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this, isMobile);
   }
 
   toggleSidebar = () => {
@@ -63,13 +77,17 @@ class Layout extends Component {
   render() {
     return (
       <>
-        <Main isSidebarOpen={this.state.isSidebarOpen} sidenavWidth={SIDENAV_WIDTH}>
+        <Main
+          isSidebarOpen={this.state.isSidebarOpen}
+          sidenavWidth={SIDENAV_WIDTH}
+        >
           {this.props.children}
         </Main>
         <Sidenav
           sidenavWidth={SIDENAV_WIDTH}
           navMenu={navMenu}
           isSidebarOpen={this.state.isSidebarOpen}
+          isMobile={this.state.isMobile}
           toggleSidebar={this.toggleSidebar}
         />
         <GlobalSwag />
