@@ -59,15 +59,15 @@ class Layout extends Component {
     this.setState({
       isMobile: isMobile()
     });
-  }
+  };
 
   componentDidMount() {
     Prism.highlightAll();
-    window.addEventListener('resize', this,isMobile);
+    window.addEventListener('resize', this, isMobile);
   }
 
-  componentWillUnmount(){
-    window.removeEventListener('resize', this,isMobile);
+  componentWillUnmount() {
+    window.removeEventListener('resize', this, isMobile);
   }
 
   toggleSidebar = () => {
@@ -77,7 +77,10 @@ class Layout extends Component {
   render() {
     return (
       <>
-        <Main isSidebarOpen={this.state.isSidebarOpen} sidenavWidth={SIDENAV_WIDTH}>
+        <Main
+          isSidebarOpen={this.state.isSidebarOpen}
+          sidenavWidth={SIDENAV_WIDTH}
+        >
           {this.props.children}
         </Main>
         <Sidenav

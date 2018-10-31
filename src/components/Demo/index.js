@@ -22,7 +22,7 @@ const Select = ({ name, value, data, onChange }) => (
 
 export default class extends Component {
   state = {
-    event: selector.events[isMobile() ? 1: 0],
+    event: selector.events[isMobile() ? 1 : 0],
     theme: selector.themes[0],
     animation: selector.animations[0]
   };
