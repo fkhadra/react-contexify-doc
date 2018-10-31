@@ -22,7 +22,9 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
 }, {});
 
 export const isMobile = () =>
-  !window.matchMedia(`(min-width: ${pxToEm(sizes.tablet)}em)`).matches;
+  typeof window !== 'undefined'
+    ? !window.matchMedia(`(min-width: ${pxToEm(sizes.tablet)}em)`).matches
+    : false;
 
 export const selector = {
   events: ['onContextMenu', 'onClick', 'onDoubleClick'],

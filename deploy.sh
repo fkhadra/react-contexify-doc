@@ -13,10 +13,9 @@ if [ $? -eq 0 ]
 then
   git add --all
   git commit
-  git push doc gh-pages
+  git push origin gh-pages
   rm -rf repocache
   exit 0
 fi
 
 exit 1
-
