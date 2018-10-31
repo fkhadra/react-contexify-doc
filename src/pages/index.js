@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 import Layout from '../components/Layout'
 import Demo from "../components/Demo";
@@ -29,7 +30,7 @@ export default () => (
     <Demo />
     <Links>
       <a href="https://github.com/fkhadra/react-contexify" className="button">github</a>
-      <a href="/installation-and-usage" className="button button-outline">Getting Started</a>
+      <Link to="installation-and-usage" className="button button-outline">Getting Started</Link>
     </Links>
   </Layout>
 )
