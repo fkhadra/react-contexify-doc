@@ -337,3 +337,29 @@ const MyMenu = () => (
   
   render(<App />);
 `;
+
+export const onShownOnHiddenCallback = `
+const MyMenu = () => (
+  <Menu 
+    id='menu_id' 
+    onShown={() => { alert('SHOWN'); }}
+    onHidden={() => { alert('HIDDEN') }}
+  >
+    <Item>Copy</Item>
+    <Separator />
+    <Item>Paste</Item>
+    <Item>Cut</Item>
+  </Menu>
+  );
+  
+  const App = () => (
+    <div>
+        <MenuProvider id="menu_id" component="span" >
+            Right click me...
+        </MenuProvider>
+        <MyMenu />
+    </div>
+  );
+  
+  render(<App />);
+`;

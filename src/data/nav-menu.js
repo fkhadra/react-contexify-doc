@@ -36,6 +36,9 @@ export default [
         label: 'The onClick event handler'
       },
       {
+        label: 'The onShown onHidden callback'
+      },
+      {
         label: 'Le style!'
       }
     ]

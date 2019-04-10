@@ -7710,9 +7710,10 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-contexify@^4.0.0-rc1:
-  version "4.0.0-rc1"
-  resolved "https://registry.yarnpkg.com/react-contexify/-/react-contexify-4.0.0-rc1.tgz#1dc10f61beecc1b10a65dcda25ca951c4003f5fa"
+react-contexify@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-contexify/-/react-contexify-4.1.0.tgz#3b3d8fdea3ea273e712788acb189101c5e385555"
+  integrity sha512-CbLBgw19Z100mhvrTGM2PuI0ON/3ZY5ek1PuUGoLVg1dSD182uJ34gYJaIDyOoSTMEXeYven13oNu4HBWERT7w==
   dependencies:
     classnames "^2.2.6"
     prop-types "^15.6.2"

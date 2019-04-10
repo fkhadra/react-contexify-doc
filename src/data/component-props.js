@@ -53,6 +53,20 @@ export const menu = [
     description:
       'Animation is appended to `.react-contexify__will-enter--${given animation}`. Built-in animations are fade, flip, pop, zoom'
   },
+  {
+    name: 'onShown',
+    required: false,
+    type: '() => void',
+    description:
+      'Invoked when the menu is shown'
+  },
+  {
+    name: 'onHidden',
+    required: false,
+    type: '() => void',
+    description:
+      'Invoked when the menu is hidden'
+  },
   ...shared.style
 ];
 
