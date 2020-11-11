@@ -1,0 +1,7 @@
+{
+  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "include": ["src/", "styles.d.ts"],
+  "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  }
+}
