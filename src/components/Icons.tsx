@@ -1,4 +1,7 @@
+import cx from "clsx";
 import React from "react";
+
+import styles from "./icon.module.css";
 
 export function Delete() {
   return (
@@ -11,7 +14,6 @@ export function Delete() {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="1.5"
-      className="icon icon-tabler icon-tabler-trash"
       viewBox="0 0 24 24"
     >
       <path stroke="none" d="M0 0h24v24H0z"></path>
@@ -34,12 +36,39 @@ export function Send() {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="1.5"
-      className="icon icon-tabler icon-tabler-send"
       viewBox="0 0 24 24"
     >
       <path stroke="none" d="M0 0h24v24H0z"></path>
       <path d="M10 14L21 3"></path>
       <path d="M21 3l-6.5 18a.55.55 0 01-1 0L10 14l-7-3.5a.55.55 0 010-1L21 3"></path>
+    </svg>
+  );
+}
+
+export interface ChevronProps {
+  direction?: "up" | "down";
+}
+
+export function Chevron({ direction = "down" }: ChevronProps) {
+  const classes = cx(styles.chevron, {
+    [`${styles["chevron--down"]}`]: direction === "down",
+    [`${styles["chevron--up"]}`]: direction === "up",
+  });
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="#607D8B"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      className={classes}
+    >
+      <path stroke="none" d="M0 0h24v24H0z"></path>
+      <path d="M6 9L12 15 18 9"></path>
     </svg>
   );
 }

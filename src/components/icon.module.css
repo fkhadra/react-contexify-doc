@@ -1,0 +1,11 @@
+.chevron {
+  transition: transform 0.3s;
+}
+
+.chevron--down {
+  transform: rotateX(0);
+}
+
+.chevron--up {
+  transform: rotateX(145deg);
+}

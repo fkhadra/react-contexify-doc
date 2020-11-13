@@ -1,0 +1,13 @@
+.dropdown {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 8px;
+  width: 120px;
+  height: 42px;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  user-select: none;
+}

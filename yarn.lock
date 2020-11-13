@@ -8321,10 +8321,10 @@ react-base16-styling@^0.6.0:
     lodash.flow "^3.3.0"
     pure-color "^1.2.0"
 
-react-contexify@^5.0.0-beta.5:
-  version "5.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/react-contexify/-/react-contexify-5.0.0-beta.5.tgz#871569e0db87f47f4ecadce52365ea793c56ebcc"
-  integrity sha512-qcdPZu8Q6+Qui+w69HrNCINf6Ru+HMCmPKg83NmaE24XH/Ubo22yRgxAntpdPnEfxxgwuDUjU3Dj9VgmaOZjnw==
+react-contexify@^5.0.0-beta.8:
+  version "5.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/react-contexify/-/react-contexify-5.0.0-beta.8.tgz#f9a0d8a865e7ba1789caa50d869aa84009b868af"
+  integrity sha512-Te1P5UyvEgC2n2ymnHjVstVz6ERGY1TxQxU7oqpXcCIgbyvVEPmNKPh5k/C+uqmzuJx4mHetfSYSNfP1VAG/bA==
   dependencies:
     clsx "^1.1.1"
 
