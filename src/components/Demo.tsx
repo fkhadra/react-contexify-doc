@@ -9,11 +9,13 @@ import {
   theme as builtInTheme,
 } from "react-contexify";
 import "react-contexify/dist/ReactContexify.min.css";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import { Emoji } from "./Emoji";
 import { Delete } from "./Icons";
 import { Dropdown } from "./Dropdown";
 import styles from "./Demo.module.css";
+import { HandlerParams } from "react-contexify/dist/types";
 
 const demoData = [
   {
@@ -81,32 +83,42 @@ function selectorReducer(
 
 const MENU_ID = "💩";
 
+enum MENU_ACTION {
+  REMOVE_ROW,
+  SEND_EMAIL,
+}
+
 export function Demo() {
+  const [rowToRemove, setRowToRemove] = useState([]);
   const { show } = useContextMenu({
     id: MENU_ID,
   });
-  const items = useTransition(demoData, (item) => item.id, {
-    from: (item) => ({
-      transform: "scale(0)",
-      height: 0,
-      transformOrigin: item.id % 2 !== 0 ? "top left" : "top right",
-      opacity: 0,
-    }),
-    enter: (item) => ({
-      transform: "scale(1)",
-      height: 100,
-      transformOrigin: item.id % 2 !== 0 ? "top left" : "top right",
-      opacity: 1,
-    }),
-    leave: {
-      transform: "scale(0)",
-      height: 0,
-      pointerEvents: "none",
-      transformOrigin: "top left",
-      opacity: 1,
-    },
-    trail: 250,
-  });
+  const items = useTransition(
+    demoData.filter(({ id }) => !rowToRemove.includes(id)),
+    (item) => item.id,
+    {
+      from: (item) => ({
+        transform: `translate3d(${item.id % 2 !== 0 ? "-100%" : "100%"}, 0, 0)`,
+        height: 0,
+        // transformOrigin: item.id % 2 !== 0 ? "top left" : "top right",
+        opacity: 0,
+      }),
+      enter: {
+        transform: "translate3d(0, 0, 0)",
+        height: 100,
+        // transformOrigin: item.id % 2 !== 0 ? "top left" : "top right",
+        opacity: 1,
+      },
+      leave: (item) => ({
+        transform: `translate3d(${item.id % 2 !== 0 ? "-100%" : "100%"}, 0, 0)`,
+        height: 0,
+        pointerEvents: "none",
+        // transformOrigin: "top center",
+        opacity: 0,
+      }),
+      trail: 250,
+    }
+  );
   const [state, setState] = React.useReducer(selectorReducer, {
     theme: selector.theme[0],
     animation: "scale",
@@ -114,11 +126,23 @@ export function Demo() {
   });
 
   function handleDropdown(id: string, value: string) {
-    console.log(id, value);
-
     setState({
       [id]: value,
     });
+  }
+
+  function handleItemClick({
+    props,
+    data,
+  }: HandlerParams<{ id: number }, { action: MENU_ACTION }>) {
+    switch (data.action) {
+      case MENU_ACTION.REMOVE_ROW:
+        setRowToRemove([...rowToRemove, props.id]);
+        break;
+
+      default:
+        break;
+    }
   }
 
   return (
@@ -145,7 +169,9 @@ export function Demo() {
             key={key}
             className={styles.listItem}
             style={props}
-            onClick={show}
+            onClick={(e) => {
+              show(e, { props: { id: item.id } });
+            }}
           >
             <img src={item.avatar} alt="avatar" />
             <article>
@@ -166,7 +192,10 @@ export function Demo() {
         ))}
       </ul>
       <Menu id={MENU_ID}>
-        <Item>
+        <Item
+          data={{ action: MENU_ACTION.REMOVE_ROW }}
+          onClick={handleItemClick}
+        >
           <Delete />
           Remove row
         </Item>
