@@ -11,10 +11,9 @@ import {
 import "react-contexify/dist/ReactContexify.min.css";
 
 import { Emoji } from "./Emoji";
-import { Delete, Chevron } from "./Icons";
-import { Select } from "./Select";
-import styles from "./demo.module.css";
-import d from "./dropdown.module.css";
+import { Delete } from "./Icons";
+import { Dropdown } from "./Dropdown";
+import styles from "./Demo.module.css";
 
 const demoData = [
   {
@@ -80,90 +79,6 @@ function selectorReducer(
   return { ...state, ...nextState };
 }
 
-export const bodyScroll = {
-  lock() {
-    document.body.style.overflow = "hidden";
-  },
-  unlock() {
-    document.body.style.removeProperty("overflow");
-  },
-};
-
-function EventMenu() {
-  const [isVisible, setVisibility] = useState(false);
-  const MenuPosition = useRef<{ x: number; y: number }>();
-  const triggerRef = useRef<HTMLDivElement>();
-  const { show, hideAll } = useContextMenu({ id: "events" });
-
-  function getMenuPosition() {
-    if (MenuPosition.current) return MenuPosition.current;
-
-    const { left, bottom } = triggerRef.current.getBoundingClientRect();
-    MenuPosition.current = { x: left, y: bottom + 4 };
-
-    return MenuPosition.current;
-  }
-
-  function handleMenuTrigger(e: React.MouseEvent) {
-    if (isVisible) {
-      setVisibility(false);
-      bodyScroll.unlock();
-      hideAll();
-      return;
-    }
-
-    setVisibility(true);
-    show(e, {
-      position: getMenuPosition(),
-    });
-
-    bodyScroll.lock();
-  }
-
-  function handleKeyboard(e: React.KeyboardEvent) {
-    switch (e.key) {
-      case "Enter":
-        setVisibility(true);
-        show(e, {
-          position: getMenuPosition(),
-        });
-        break;
-      case "Escape":
-        if (isVisible) {
-          setVisibility(false);
-          hideAll();
-        }
-        break;
-    }
-  }
-
-  function clearVisibility() {
-    setVisibility(false);
-  }
-
-  return (
-    <div>
-      <div
-        onClick={handleMenuTrigger}
-        onKeyDown={handleKeyboard}
-        className={d.dropdown}
-        tabIndex={0}
-        ref={triggerRef}
-      >
-        <span>Event</span>
-        <span>
-          <Chevron direction={isVisible ? "up" : "down"} />
-        </span>
-      </div>
-      <Menu id="events" animation="fade" onHidden={clearVisibility}>
-        <Item>Right click</Item>
-        <Item>Left click</Item>
-        <Item>Double click</Item>
-      </Menu>
-    </div>
-  );
-}
-
 const MENU_ID = "💩";
 
 export function Demo() {
@@ -194,30 +109,30 @@ export function Demo() {
   });
   const [state, setState] = React.useReducer(selectorReducer, {
     theme: selector.theme[0],
-    animation: selector.animation[0],
+    animation: "scale",
     event: selector.event[0],
   });
 
-  function handleSelector({
-    target: { name, value },
-  }: React.ChangeEvent<HTMLSelectElement>) {
+  function handleDropdown(id: string, value: string) {
+    console.log(id, value);
+
     setState({
-      [name]: value,
+      [id]: value,
     });
   }
 
   return (
-    <>
+    <div>
       <div>
-        <ul>
+        <ul className={styles.settings}>
           {Object.keys(selector).map((key) => (
             <li key={key}>
-              <label htmlFor={key}>{key}</label>
-              <Select
-                name={key}
-                value={state[key]}
-                data={selector[key]}
-                onChange={handleSelector}
+              <Dropdown
+                id={key}
+                label={key}
+                options={selector[key]}
+                value={state[key as keyof typeof state]}
+                onChange={handleDropdown}
               />
             </li>
           ))}
@@ -230,7 +145,7 @@ export function Demo() {
             key={key}
             className={styles.listItem}
             style={props}
-            onContextMenu={show}
+            onClick={show}
           >
             <img src={item.avatar} alt="avatar" />
             <article>
@@ -256,7 +171,6 @@ export function Demo() {
           Remove row
         </Item>
       </Menu>
-      <EventMenu />
-    </>
+    </div>
   );
 }

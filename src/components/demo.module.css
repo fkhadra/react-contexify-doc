@@ -1,15 +1,9 @@
 .list {
-  /* reset ifm vars */
-  --ifm-list-left-padding: 0;
-  --ifm-list-margin: 0;
-  --ifm-list-item-margin: 0;
-  --ifm-list-paragraph-margin: 0;
   color: white;
   margin: 0;
 }
 
 .listItem {
-  --ifm-list-item-margin: 0;
   display: flex;
   align-items: center;
   margin: 0;
@@ -32,4 +26,13 @@
 .listItem article {
   padding: 10px;
   flex: 1;
+}
+
+.settings {
+  list-style: none;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
