@@ -1,10 +1,9 @@
 ---
-id: doc1
+id: introduction
 title: React-Contexify
-sidebar_label: Style Guide
+sidebar_label: Introduction
 slug: /
 ---
-
 
 
 ![React-contexify CI](https://github.com/fkhadra/react-contexify/workflows/React-contexify%20CI/badge.svg)
@@ -18,3 +17,27 @@ slug: /
 import { Demo } from '../src/components'
 
 <Demo />
+
+:::info
+Hey you like those dropdowns ? They are accessible and build using react-contexify!
+:::
+
+## Features
+
+- Easy to set up for real, you can make it work in less than 10sec!
+- Super easy to customize
+- Custom position
+- Sub menu support
+- Dark mode 🌒
+- Keyboard navigation
+- Built-in animations
+- Easy to test !
+- And much more !
+
+## Contribute
+
+Show your ❤️ and support by giving a ⭐. Any suggestions are welcome! Take a look at the contributing guide in the repo.
+
+## License
+
+Licensed under MIT

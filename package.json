@@ -16,7 +16,7 @@
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
     "react": "^16.8.4",
-    "react-contexify": "^5.0.0-beta.10",
+    "react-contexify": "^5.0.0-beta.12",
     "react-dom": "^16.8.4",
     "react-spring": "^8.0.27",
     "react-toastify": "^6.1.0"

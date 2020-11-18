@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Item, Menu, useContextMenu } from "react-contexify";
+import { Item, Menu, useContextMenu, ItemParams } from "react-contexify";
 import useThemeContext from "@theme/hooks/useThemeContext";
 
-import { HandlerParams } from "react-contexify/dist/types";
 import { Emoji } from "../Emoji";
 import { Chevron } from "../Icons";
 
@@ -67,7 +66,7 @@ export function Dropdown({ id, value, options, onChange }: DropdownProps) {
     setVisibility(false);
   }
 
-  function handleChange({ data }: HandlerParams<any, { value: string }>) {
+  function handleChange({ data }: ItemParams<any, { value: string }>) {
     onChange(id, data.value);
   }
 

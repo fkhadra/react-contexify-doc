@@ -39,7 +39,8 @@
   border: 2px solid #44c9ad;
 }
 
-.dropdown[aria-expanded="true"]::before {
+.dropdown[aria-expanded="true"]::before,
+.dropdown:focus::before {
   content: "";
   position: absolute;
   top: -2px;
@@ -65,7 +66,8 @@
   transition: opacity 0.3s ease-in-out 0s;
 }
 
-.dropdown[aria-expanded="true"]::after {
+.dropdown[aria-expanded="true"]::after,
+.dropdown:focus::after {
   z-index: -1;
   content: "";
   position: absolute;

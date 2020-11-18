@@ -7,15 +7,16 @@ import {
   useContextMenu,
   animation as builtInAnimation,
   theme as builtInTheme,
+  ItemParams,
 } from "react-contexify";
 import "react-contexify/dist/ReactContexify.min.css";
 import "react-toastify/dist/ReactToastify.min.css";
 
 import { Emoji } from "./Emoji";
-import { Delete } from "./Icons";
+import { Delete, Twitter, Email, Handshake } from "./Icons";
 import { Dropdown } from "./Dropdown";
 import styles from "./Demo.module.css";
-import { HandlerParams } from "react-contexify/dist/types";
+import { toast, ToastContainer } from "react-toastify";
 
 const demoData = [
   {
@@ -83,9 +84,11 @@ function selectorReducer(
 
 const MENU_ID = "💩";
 
-enum MENU_ACTION {
-  REMOVE_ROW,
-  SEND_EMAIL,
+enum ACTION {
+  SHARE = "share",
+  REMOVE_ROW = "remove-row",
+  SEND_EMAIL = "send-email",
+  SPONSOR = "sponsor",
 }
 
 export function Demo() {
@@ -100,20 +103,17 @@ export function Demo() {
       from: (item) => ({
         transform: `translate3d(${item.id % 2 !== 0 ? "-100%" : "100%"}, 0, 0)`,
         height: 0,
-        // transformOrigin: item.id % 2 !== 0 ? "top left" : "top right",
         opacity: 0,
       }),
       enter: {
         transform: "translate3d(0, 0, 0)",
         height: 100,
-        // transformOrigin: item.id % 2 !== 0 ? "top left" : "top right",
         opacity: 1,
       },
       leave: (item) => ({
         transform: `translate3d(${item.id % 2 !== 0 ? "-100%" : "100%"}, 0, 0)`,
         height: 0,
         pointerEvents: "none",
-        // transformOrigin: "top center",
         opacity: 0,
       }),
       trail: 250,
@@ -131,19 +131,41 @@ export function Demo() {
     });
   }
 
-  function handleItemClick({
-    props,
-    data,
-  }: HandlerParams<{ id: number }, { action: MENU_ACTION }>) {
-    switch (data.action) {
-      case MENU_ACTION.REMOVE_ROW:
+  function handleItemClick({ event, props }: ItemParams<{ id: number }>) {
+    switch (event.currentTarget.id as ACTION) {
+      case ACTION.REMOVE_ROW:
         setRowToRemove([...rowToRemove, props.id]);
         break;
-
+      case ACTION.SHARE:
+        window.open(
+          "https://twitter.com/intent/tweet?text=Wow%20%F0%9F%98%B2%21%20React-contexify%20is%20amazing%2C%20you%20should%20at%20least%20give%20it%20a%20try.%20https%3A%2F%2Fgithub.com%2Ffkhadra%2Freact-contexify%0A%23react%20%23webdev",
+          "_blank"
+        );
+        break;
+      case ACTION.SEND_EMAIL:
+        toast("🚀 Sending an email or maybe not...");
+        break;
+      case ACTION.SPONSOR:
+        window.open("https://github.com/sponsors/fkhadra", "_blank");
+        break;
       default:
         break;
     }
   }
+
+  function resetDemo() {
+    setRowToRemove([]);
+  }
+
+  function displayMenu(e: React.MouseEvent) {
+    show(e, { props: { id: Number(e.currentTarget.id) } });
+  }
+
+  const { theme, animation, event } = state;
+
+  const triggerEvent = {
+    [event]: displayMenu,
+  };
 
   return (
     <div>
@@ -165,13 +187,11 @@ export function Demo() {
       <ul className={styles.list}>
         {items.map(({ item, key, props }) => (
           <animated.li
-            id={key}
+            id={`${item.id}`}
             key={key}
             className={styles.listItem}
             style={props}
-            onClick={(e) => {
-              show(e, { props: { id: item.id } });
-            }}
+            {...triggerEvent}
           >
             <img src={item.avatar} alt="avatar" />
             <article>
@@ -191,15 +211,49 @@ export function Demo() {
           </animated.li>
         ))}
       </ul>
-      <Menu id={MENU_ID}>
+      <div>
+        <button onClick={resetDemo}>Reset demo</button>
+      </div>
+      <Menu
+        id={MENU_ID}
+        theme={theme}
+        animation={animation === "none" ? false : animation}
+      >
         <Item
-          data={{ action: MENU_ACTION.REMOVE_ROW }}
+          id={ACTION.REMOVE_ROW}
           onClick={handleItemClick}
+          className={styles.itemContent}
         >
           <Delete />
-          Remove row
+          <span>Remove row</span>
+        </Item>
+        <Separator />
+        <Item
+          id={ACTION.SHARE}
+          onClick={handleItemClick}
+          className={styles.itemContent}
+        >
+          <Twitter />
+          <span>Share</span>
+        </Item>
+        <Item
+          id={ACTION.SEND_EMAIL}
+          onClick={handleItemClick}
+          className={styles.itemContent}
+        >
+          <Email />
+          <span>Send email</span>
+        </Item>
+        <Item disabled>I'm disabled I guess</Item>
+        <Item
+          id={ACTION.SPONSOR}
+          onClick={handleItemClick}
+          className={styles.itemContent}
+        >
+          <Handshake /> <span>Sponsor my work</span>
         </Item>
       </Menu>
+      <ToastContainer />
     </div>
   );
 }
