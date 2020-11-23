@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useTransition, animated } from "react-spring";
 import {
   Menu,
@@ -17,6 +17,7 @@ import { Delete, Twitter, Email, Handshake } from "./Icons";
 import { Dropdown } from "./Dropdown";
 import styles from "./Demo.module.css";
 import { toast, ToastContainer } from "react-toastify";
+import { Button } from "./Button";
 
 const demoData = [
   {
@@ -211,8 +212,8 @@ export function Demo() {
           </animated.li>
         ))}
       </ul>
-      <div>
-        <button onClick={resetDemo}>Reset demo</button>
+      <div className={styles.cta}>
+        <Button onClick={resetDemo}>Reset demo</Button>
       </div>
       <Menu
         id={MENU_ID}

@@ -24,8 +24,6 @@ export function Dropdown({ id, value, options, onChange }: DropdownProps) {
   const { show, hideAll } = useContextMenu({ id });
 
   function getMenuPosition() {
-    if (MenuPosition.current) return MenuPosition.current;
-
     const { left, bottom } = triggerRef.current.getBoundingClientRect();
     MenuPosition.current = { x: left, y: bottom + 8 };
 

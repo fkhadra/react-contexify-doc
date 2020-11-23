@@ -52,3 +52,9 @@
 .itemContent span {
   margin-left: 8px;
 }
+
+.cta {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}

@@ -1,0 +1,37 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--ifm-color-primary);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.2s all;
+  outline: none;
+  outline-style: solid;
+  outline-color: transparent;
+
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentcolor;
+  }
+}
+
+.button:active,
+.button:hover {
+  background-color: var(--ifm-color-primary-darkest);
+  transform: translateY(-3px);
+}
+
+.button:focus {
+  box-shadow: 0px 0px 0 4px var(--ifm-color-primary-darkest);
+}
