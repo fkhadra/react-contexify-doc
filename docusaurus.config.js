@@ -8,6 +8,9 @@ module.exports = {
   organizationName: "fkhadra", // Usually your GitHub org/user name.
   projectName: "react-contexify", // Usually your repo name.
   themeConfig: {
+    prism: {
+      theme: require("prism-react-renderer/themes/dracula"),
+    },
     navbar: {
       title: "React-Contexify",
       logo: {
