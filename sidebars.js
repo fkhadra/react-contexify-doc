@@ -11,7 +11,6 @@ module.exports = {
       "change-submenu-arrow",
       "disable-hide-submenu",
       "passing-props-and-data-to-item",
-      
     ],
     Features: [],
   },
