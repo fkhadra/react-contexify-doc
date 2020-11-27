@@ -123,10 +123,7 @@ import {
 } from "react-contexify";
 import "react-contexify/dist/ReactContexify.css";
 ```
-:::info
-If you cannot import a stylesheet(no css loader for example), I got your back ! Please have a look at [here](style/load-style.md) 
-:::
-
+  
 ### Assign an id to our menu
 
 Each `Menu` is required to have an `id`. The `id` is used to identify the `Menu` and to display it. 
