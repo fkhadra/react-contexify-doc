@@ -12,8 +12,15 @@ module.exports = {
       "disable-hide-submenu",
       "prevent-menu-from-closing",
       "mount-menu-at-specific-place",
-      "trigger-the-menu-outside-of-react-compoent"
+      "trigger-the-menu-outside-of-react-compoent",
     ],
-    Features: [],
+    ["API Reference"]: [
+      "api/menu",
+      "api/item",
+      "api/separator",
+      "api/submenu",
+      "api/use-context-menu",
+      "api/context-menu",
+    ],
   },
 };
