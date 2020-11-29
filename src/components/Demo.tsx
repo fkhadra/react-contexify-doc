@@ -123,7 +123,7 @@ export function Demo() {
   const [state, setState] = React.useReducer(selectorReducer, {
     theme: selector.theme[0],
     animation: "scale",
-    event: selector.event[0],
+    event: selector.event[1],
   });
 
   function handleDropdown(id: string, value: string) {

@@ -7,7 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "DEPLOYMENT_BRANCH=\"gh-pages\"; GIT_USER=\"fkhadra\" docusaurus deploy",
     "serve": "docusaurus serve"
   },
   "dependencies": {

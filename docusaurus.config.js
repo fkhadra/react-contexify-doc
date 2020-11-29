@@ -43,7 +43,7 @@ module.exports = {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/fkhadra/react-toastify-doc/edit/master/",
+          editUrl: "https://github.com/fkhadra/react-contexify-doc/edit/master/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
