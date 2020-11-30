@@ -70,6 +70,17 @@ const selector = {
   ],
 };
 
+function getEventLabel(event: string) {
+  switch (event) {
+    case "onClick":
+      return "Click";
+    case "onDoubleClick":
+      return "Double click";
+    case "onContextMenu":
+      return "Right click";
+  }
+}
+
 interface SelectorState {
   theme: string;
   animation: string;
@@ -184,6 +195,9 @@ export function Demo() {
             </li>
           ))}
         </ul>
+        <p className={styles.info}>
+          {getEventLabel(event)} an Item in the list to start playing
+        </p>
       </div>
       <ul className={styles.list}>
         {items.map(({ item, key, props }) => (

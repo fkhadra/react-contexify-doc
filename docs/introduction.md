@@ -19,7 +19,7 @@ import { Demo } from '../src/components'
 <Demo />
 
 :::info
-Hey 👋, you like those dropdowns? They are accessible and built with react-contexify!
+Hey 👋, you like those dropdowns? They are accessible and built with react-contexify! Check this [example](set-a-custom-position.md#recreate-the-dropdown-step-by-step)
 :::
 
 ## Features
