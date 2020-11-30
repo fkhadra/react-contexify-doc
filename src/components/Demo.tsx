@@ -22,7 +22,7 @@ import { Button } from "./Button";
 const demoData = [
   {
     id: 1,
-    avatar: "/static/img/tux1.png",
+    avatar: "/img/tux1.png",
     firstName: "Roseanna",
     lastName: "Savil",
     email: "rsavil0@state.gov",
@@ -30,7 +30,7 @@ const demoData = [
   },
   {
     id: 2,
-    avatar: "/static/img/tux2.png",
+    avatar: "/img/tux2.png",
     firstName: "Cara",
     lastName: "Duddan",
     email: "cduddan1@merriam-webster.com",
@@ -38,7 +38,7 @@ const demoData = [
   },
   {
     id: 3,
-    avatar: "/static/img/tux3.png",
+    avatar: "/img/tux3.png",
     firstName: "Tobias",
     lastName: "Maughan",
     email: "tmaughan2@prnewswire.com",
@@ -46,7 +46,7 @@ const demoData = [
   },
   {
     id: 4,
-    avatar: "/static/img/tux4.png",
+    avatar: "/img/tux4.png",
     firstName: "Sammie",
     lastName: "Mackness",
     email: "smackness3@discuz.net",
