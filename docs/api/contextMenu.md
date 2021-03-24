@@ -21,7 +21,7 @@ import { contextMenu } from 'react-contexify';
 
 // basic usage
 function displayMenu(e: React.MouseEvent) {
-  contextMenu({
+  contextMenu.show({
     id: "menuId",
     event: e,
   })
@@ -29,7 +29,7 @@ function displayMenu(e: React.MouseEvent) {
 
 // multiple menu handling
 function displayMenu(e: React.MouseEvent) {
-  contextMenu({
+  contextMenu.show({
     id: "another-menu",
     event: e,
   })
@@ -37,7 +37,7 @@ function displayMenu(e: React.MouseEvent) {
 
 // custom position
 function displayMenu(e: React.MouseEvent) {
-  contextMenu({
+  contextMenu.show({
     id: "menuId",
     event: e,
     position: {
@@ -49,7 +49,7 @@ function displayMenu(e: React.MouseEvent) {
 
 // pass props
 function displayMenu(e: React.MouseEvent) {
-  contextMenu({
+  contextMenu.show({
     id: "menuId",
     event: e,
     props: {
