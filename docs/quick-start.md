@@ -127,19 +127,19 @@ import "react-contexify/dist/ReactContexify.css";
 ### Assign an id to our menu
 
 Each `Menu` is required to have an `id`. The `id` is used to identify the `Menu` and to display it. 
-This comes in handy when your app has multiple `Menu`.
+This comes in handy when your app has multiple `Menu`s.
 
-Let's store it in a variable to avoid any typo.
+Let's store it in a variable to avoid any typos.
 ```jsx
 const MENU_ID = "menu-id";
 ```
 
 :::info
-- Only strings are supported for the moment. 
-- the id will also be attached to the html node
+- Only strings are supported 
+- The id will also be attached to the html node
 :::
 
-### Bound the menu to a component
+### Bind the menu to a component
 
 Initialize the `useContextMenu` hook with the `menuId` we defined earlier. 
 
