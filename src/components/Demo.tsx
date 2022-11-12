@@ -5,12 +5,10 @@ import {
   Item,
   Separator,
   useContextMenu,
-  animation as builtInAnimation,
-  theme as builtInTheme,
   ItemParams,
 } from "react-contexify";
-import "react-contexify/dist/ReactContexify.min.css";
-import "react-toastify/dist/ReactToastify.min.css";
+import "react-contexify/ReactContexify.css";
+import "react-toastify/ReactToastify.min.css";
 
 import { Emoji } from "./Emoji";
 import { Delete, Twitter, Email, Handshake } from "./Icons";
@@ -18,6 +16,18 @@ import { Dropdown } from "./Dropdown";
 import styles from "./Demo.module.css";
 import { toast, ToastContainer } from "react-toastify";
 import { Button } from "./Button";
+
+const builtInAnimation = {
+  fade: "fade",
+  flip: "flip",
+  scale: "scale",
+  slide: "slide",
+};
+
+const builtInTheme = {
+  light: "light",
+  dark: "dark",
+};
 
 const demoData = [
   {
@@ -143,8 +153,8 @@ export function Demo() {
     });
   }
 
-  function handleItemClick({ event, props }: ItemParams<{ id: number }>) {
-    switch (event.currentTarget.id as ACTION) {
+  function handleItemClick({ id, props }: ItemParams<{ id: ACTION }>) {
+    switch (id as ACTION) {
       case ACTION.REMOVE_ROW:
         setRowToRemove([...rowToRemove, props.id]);
         break;
@@ -170,7 +180,7 @@ export function Demo() {
   }
 
   function displayMenu(e: React.MouseEvent) {
-    show(e, { props: { id: Number(e.currentTarget.id) } });
+    show({ event: e, props: { id: Number(e.currentTarget.id) } });
   }
 
   const { theme, animation, event } = state;

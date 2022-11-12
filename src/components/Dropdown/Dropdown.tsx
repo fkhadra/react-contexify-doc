@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Item, Menu, useContextMenu, ItemParams } from "react-contexify";
-import useThemeContext from "@theme/hooks/useThemeContext";
+// import useThemeContext from "@docusaurus/plugin-content-pages";
+import { useColorMode } from "@docusaurus/theme-common";
 
 import { Emoji } from "../Emoji";
 import { Chevron } from "../Icons";
@@ -18,7 +19,7 @@ export interface DropdownProps {
 
 export function Dropdown({ id, value, options, onChange }: DropdownProps) {
   const [isVisible, setVisibility] = useState(false);
-  const { isDarkTheme } = useThemeContext();
+  const isDarkTheme = useColorMode().colorMode === "dark";
   const MenuPosition = useRef<{ x: number; y: number }>();
   const triggerRef = useRef<HTMLButtonElement>();
   const { show, hideAll } = useContextMenu({ id });
@@ -32,13 +33,12 @@ export function Dropdown({ id, value, options, onChange }: DropdownProps) {
 
   function handleMenuTrigger(e: React.MouseEvent) {
     if (isVisible) {
-      setVisibility(false);
       hideAll();
       return;
     }
 
-    setVisibility(true);
-    show(e, {
+    show({
+      event: e,
       position: getMenuPosition(),
     });
   }
@@ -46,22 +46,21 @@ export function Dropdown({ id, value, options, onChange }: DropdownProps) {
   function handleKeyboard(e: React.KeyboardEvent) {
     switch (e.key) {
       case "Enter":
-        setVisibility(true);
-        show(e, {
+        show({
+          event: e,
           position: getMenuPosition(),
         });
         break;
       case "Escape":
         if (isVisible) {
-          setVisibility(false);
           hideAll();
         }
         break;
     }
   }
 
-  function clearVisibility() {
-    setVisibility(false);
+  function toggleVisibility(isVisible: boolean) {
+    setVisibility(isVisible);
   }
 
   function handleChange({ data }: ItemParams<any, { value: string }>) {
@@ -96,8 +95,8 @@ export function Dropdown({ id, value, options, onChange }: DropdownProps) {
       <Menu
         id={id}
         animation="fade"
-        onHidden={clearVisibility}
         theme={isDarkTheme ? "dark" : "light"}
+        onVisibilityChange={toggleVisibility}
       >
         {options.map((option) => (
           <Item key={option} onClick={handleChange} data={{ value: option }}>

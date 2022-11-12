@@ -1,0 +1,18 @@
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+.formWrapper {
+  max-width: fit-content;
+  margin-left: auto;
+}
+
+.inputGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 1rem;
+}

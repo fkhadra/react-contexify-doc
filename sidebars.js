@@ -2,6 +2,7 @@ module.exports = {
   someSidebar: {
     ["Getting Started"]: [
       "introduction",
+      "theme-builder",
       "quick-start",
       "release-notes",
       "migrate",
