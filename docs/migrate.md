@@ -17,6 +17,7 @@ After more than a year without a release, I'm super excited about this release. 
 
 ## Breaking changes 💥
 
+- default animation switched from "scale" to "fade"
 - removal of `theme` and `animation` constants
 - The `show` method exposed by the `useContextMenu` hook uses the same signature as `contextMenu`. It only accept a single parameter now.
 ```tsx

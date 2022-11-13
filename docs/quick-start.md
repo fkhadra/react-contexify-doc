@@ -137,7 +137,7 @@ const MENU_ID = "menu-id";
 ```
 
 :::info
-- Only strings are supported for the moment. 
+- Only strings are supported. 
 - the id will also be attached to the html node
 :::
 
@@ -198,8 +198,3 @@ When rendering the menu, the `id` is mandatory. Also, when the menu is not visib
   </Submenu>
 </Menu>
 ```
-
-:::info
-I didn't mention the `onClick` handler. The next section is dedicated to it.
-:::
-

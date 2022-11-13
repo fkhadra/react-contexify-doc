@@ -96,8 +96,6 @@ export function ThemeBuilder() {
               menuContainer.current.offsetTop / 2,
           },
         });
-
-        menu.current = document.querySelector(".theme-builder");
       }, 0);
     }
   }, []);
@@ -187,6 +185,12 @@ export function ThemeBuilder() {
         className="theme-builder"
         disableBoundariesCheck
         hideOn={[]}
+        onVisibilityChange={(v) => {
+          if (v) {
+            menu.current = document.querySelector(".theme-builder");
+            forceUpdate();
+          }
+        }}
       >
         <Item closeOnClick={false}>
           Item 1<RightSlot>⌘C</RightSlot>
