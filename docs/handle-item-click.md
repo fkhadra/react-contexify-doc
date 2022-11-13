@@ -4,8 +4,9 @@ title: Handle Item click
 ---
 
 Handling `Item` click/touch is at the core of react-contexify. When an `Item` is clicked, the callback gives you access to the following parameters:
+- `id` The item id when defined
 - `event` The event that occurred on the Item node
-- `props` The props passed when you called `show(e, {props: yourProps})`
+- `props` The props passed when you called `show({event: e, props: yourProps})`
 - `data` The data defined on the `Item`
 - `triggerEvent` The event that triggered the context menu
 
@@ -39,7 +40,6 @@ import TabItem from '@theme/TabItem';
 ```jsx
 import { useContextMenu, Menu, Item, Separator } from "react-contexify";
 
-// I really used that emoji for my menu id 🤣
 const MENU_ID = "💩";
 
 export function Demo() {
@@ -48,19 +48,17 @@ export function Demo() {
   });
 
   function displayMenu(e) {
-    // pass the item id so the `onClick` on the `Item` has access to it
-    show(e, { props: { id: Number(e.currentTarget.id) } });
+    show({event: e, props: { key: "value" }});
   }
 
-  function handleItemClick({ event, props, data, triggerEvent }) {
+  function handleItemClick({ id, props, data, triggerEvent }) {
     // ⚠️ data and triggerEvent are not used. I've just added them so we have the full list of parameters
 
     // I use the id attribute defined on the `Item` to identify which one is it
     // this feel natural to my brain
-    switch (event.currentTarget.id) {
+    switch (id) {
       case "remove":
         // logic to remove the row
-        console.log(props.id); // contain to item.id passed by `show`
         break;
       case "share":
         // logic to share
@@ -123,7 +121,7 @@ const MENU_ID = "💩";
 
 // Define an interface for the props that I'll pass to the Item
 interface ItemProps {
-  id: number;
+  key: string;
 }
 
 // Defined just for documentation purpose
@@ -136,10 +134,11 @@ export function Demo() {
 
   function displayMenu(e: React.MouseEvent) {
     // pass the item id so the `onClick` on the `Item` has access to it
-    show(e, { props: { id: Number(e.currentTarget.id) } });
+    show({event: e, props: { key: "some value" } });
   }
 
   function handleItemClick({
+    id,
     event,
     props,
     data,
@@ -149,10 +148,9 @@ export function Demo() {
 
     // I use the id attribute defined on the `Item` to identify which one is it
     // this feel natural to my brain
-    switch (event.currentTarget.id) {
+    switch (id) {
       case "remove":
         // logic to remove the row
-        console.log(props.id); // contain to item.id passed by `show`
         break;
       case "share":
         // logic to share

@@ -43,8 +43,9 @@ function App() {
 
   function displayMenu(e){
     // run some logic to determine which menu you should display
-    show(e, {
-      id: "menu2"
+    show({
+      id: "menu2",
+      event: e
     })
   }
 

@@ -33,7 +33,8 @@ function App() {
   });
 
   function displayContextMenu(e) {
-    show(e, {
+    show({
+      event: e,
       props: {
         key: "foobar",
       },
@@ -87,7 +88,8 @@ function App() {
   });
 
   function displayContextMenu(e) {
-    show(e, {
+    show({
+      event: e,
       props: {
         key: "foobar",
       },

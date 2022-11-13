@@ -1,9 +1,7 @@
 ---
-id: mount-menu-at-specific-place
-title: Mount Menu at specific place
+id: usage-with-portal
+title: Usage with Portal
 ---
-
-The previous versions were appending the `Menu` to the `document.body`. This was not always convenient. This is not the case anymore.
 
 To render the `Menu` at a specific place in the DOM. You can use [react portal](https://reactjs.org/docs/portals.html) for that.
 

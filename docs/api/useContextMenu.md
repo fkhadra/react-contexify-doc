@@ -44,19 +44,23 @@ const { show, hideAll } = useContextMenu({
 
 // basic usage
 function displayMenu(e: React.MouseEvent) {
-  show(e)
+  show({
+    event: e
+  })
 }
 
 // multiple menu handling
 function displayMenu(e: React.MouseEvent) {
-  show(e, {
+  show({
+    event: e,
     id: "another-menu-id"
   })
 }
 
 // custom position
 function displayMenu(e: React.MouseEvent) {
-  show(e, {
+  show({
+    event: e,
     position: {
       x: 100,
       y: 200
@@ -66,7 +70,8 @@ function displayMenu(e: React.MouseEvent) {
 
 // pass props
 function displayMenu(e: React.MouseEvent) {
-  show(e, {
+  show({
+    event: e,
     props: {
       key: "value1",
       foo: false

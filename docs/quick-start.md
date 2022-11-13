@@ -63,7 +63,9 @@ export default function App() {
   function displayMenu(e){
     // put whatever custom logic you need
     // you can even decide to not display the Menu
-    show(e);
+    show({
+      event: e,
+    });
   }
 
   return (
@@ -151,7 +153,9 @@ const { show } = useContextMenu({
 function displayMenu(e){
   // put whatever custom logic you need
   // you can even decide to not display the Menu
-  show(e);
+  show({
+    event: e,
+  });
 }
 
 // later when we render

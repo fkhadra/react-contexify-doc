@@ -3,7 +3,8 @@ id: prevent-menu-from-closing
 title: Prevent menu from closing
 ---
 
-By default, when clicking on a menu item, the menu will be closed. If you want to prevent this behavior, simply call `stopPropagation` on the event.
+By default, when clicking on a menu item, the menu will be closed. If you want to prevent this behavior, the `Item` component accept a `closeOnClick` props.
+This is useful when you have input inside an Item for example.
 
 ```jsx
 import {
@@ -22,12 +23,12 @@ export default function App() {
   });
  
   function handleItemClick({ event }){
-    // this will prevent the Menu from being closed
-    event.stopPropagation();
   }
 
   function displayMenu(e){
-    show(e);
+    show({
+      event: e,
+    });
   }
 
   return (
@@ -36,7 +37,7 @@ export default function App() {
         Right click inside the box
       </div>
       <Menu id={MENU_ID}>
-        <Item onClick={handleItemClick}>
+        <Item  closeOnClick={false} onClick={handleItemClick}>
           Item 1
         </Item>
         <Item onClick={handleItemClick}>

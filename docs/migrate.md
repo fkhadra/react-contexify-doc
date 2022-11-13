@@ -1,65 +1,59 @@
 ---
 id: migrate
-title: Migrate from previous version
+title: Migrate to v6 🚀
 ---
 
-## MenuProvider has been removed
+After more than a year without a release, I'm super excited about this release. It fixes many bugs but also brings new features that are more than welcome! Despite adding more features, the library size decreased from 3.4K to 3.1K 😊.
 
-The `MenuProvider` has been removed. It was not flexible enough. Use the `useContextMenu` hook instead or the `contextMenu` object if you are still using classes.
+## New features 🚀
 
-```jsx
-import { useContextMenu } from 'react-contexify';
+- Allow to disable boundaries check
+- Allow to disable preventDefault on key down
+- Add support for hidden property to Separator
+- Add visual feedback when item is clicked
+- Easy customization thanks to css variables. Check out the [theme builder](theme-builder)
+- 🔥 Keyboard shortcut made easy! A `keyMatcher` prop has been added to the `Item` component.
+<iframe src="https://stackblitz.com/edit/react-contexify-kbd-shortcut?embed=1&file=App.tsx&theme=dark" width="100%" height="400px"/>
 
-function App(){
-  const { show } = useContextMenu({ id: "menuId" });
+## Breaking changes 💥
 
-  function showMenu(e){
-    show(e);
-  }
+- removal of `theme` and `animation` constants
+- The `show` method exposed by the `useContextMenu` hook uses the same signature as `contextMenu`. It only accept a single parameter now.
+```tsx
+const {show} = useContextMenu({id: "menuId"})
 
-  return (
-    <div onContextMenu={showMenu}>
-      {/* other components */}
-    </div>
-  )
-}
+// ⛔️ Before
+show(e, {props: {}})
+
+// ✅ Now
+show({ event: e, props: {}})
 ```
 
-```jsx
-import { contextMenu } from 'react-contexify';
+- The `onShow` and `onHidden` callback have been removed in favor of a single callback `onVisibilityChange`
 
-class App extends Components {
-  showMenu(e){
-    contextMenu.show({
-      event: e
-    });
-  }
+```tsx
 
-  render(){
-    return (
-      <div onContextMenu={showMenu}>
-        {/* other components */}
-      </div>
-    )
-  }
-}
-```
-
-## IconFont has been removed
-
-The `Item` content can be anything. `IconFont` can be easly reimplemented to meet your requirements.
-
-```jsx
-import { Item } from 'react-contexify'
-
-function IconFont(props) {
-  return <i {...props}/>
+const handleVisibilityChange = (isVisible: boolean) => {
+  console.log(isVisible)
 }
 
-<Item>
-  <div>
-    <IconFont className="fa fa-times">
-    <span>close</span>
-  </div>
-</Item>
+<Menu id="menuId" onVisibilityChange={handleVisibilityChange}>
+  <Item>Item 1</Item>
+</Menu>
 ```
+
+- Shorter path to import css
+```tsx
+// ⛔️ Before
+import "react-contexify/dist/ReactContexify.css"
+
+// ✅ Now
+import "react-contexify/ReactContexify.css"
+```
+
+- Drop support for webpack 4
+
+- css classes have been renamed, please check [how to style](how-to-style) for the list
+
+
+Happy hacking 🎉!

@@ -13,7 +13,8 @@ function App() {
   const { show } = useContextMenu({ id: "menuId" });
 
   function displayMenu(e) {
-    show(e, {
+    show({
+      event: e,
       position: {
         x: 100,
         y: 10,
@@ -28,7 +29,7 @@ function App() {
 ## Recreate the dropdown step by step
 
 
-<iframe src="https://codesandbox.io/embed/the-gist-gf1tl?fontsize=14&hidenavigation=1&theme=dark"
+<iframe src="https://stackblitz.com/edit/react-contexify-dropdown?embed=1&file=App.tsx&theme=dark"
      style={{
        width:'100%',
        height: '500px',
@@ -36,9 +37,6 @@ function App() {
        borderRadius: '4px',
        overflow:'hidden'
      }}
-     title="The dropdown"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe> 
 
 

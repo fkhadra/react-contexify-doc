@@ -3,7 +3,7 @@ id: change-submenu-arrow
 title: Change Submenu arrow
 ---
 
-The `Submenu` component an `arrow` props. You can provide any valid ReactNode. 
+The `Submenu` component accept an `arrow` props. You can provide any valid ReactNode. 
 
 - Let's replace the default arrow by a unicorn!
   
