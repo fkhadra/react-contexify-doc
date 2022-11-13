@@ -6,6 +6,7 @@ import {
   Separator,
   useContextMenu,
   ItemParams,
+  RightSlot,
 } from "react-contexify";
 import "react-contexify/ReactContexify.css";
 import "react-toastify/ReactToastify.min.css";
@@ -143,7 +144,7 @@ export function Demo() {
   );
   const [state, setState] = React.useReducer(selectorReducer, {
     theme: selector.theme[0],
-    animation: "scale",
+    animation: "fade",
     event: selector.event[1],
   });
 
@@ -248,9 +249,14 @@ export function Demo() {
           id={ACTION.REMOVE_ROW}
           onClick={handleItemClick}
           className={styles.itemContent}
+          keyMatcher={(e) => {
+            e.preventDefault();
+            return e.metaKey && e.key === "d";
+          }}
         >
           <Delete />
           <span>Remove row</span>
+          <RightSlot>⌘D</RightSlot>
         </Item>
         <Separator />
         <Item
@@ -265,9 +271,14 @@ export function Demo() {
           id={ACTION.SEND_EMAIL}
           onClick={handleItemClick}
           className={styles.itemContent}
+          keyMatcher={(e) => {
+            e.preventDefault();
+            return e.metaKey && e.key === "e";
+          }}
         >
           <Email />
           <span>Send email</span>
+          <RightSlot>⌘E</RightSlot>
         </Item>
         <Item disabled>I'm disabled I guess</Item>
         <Item

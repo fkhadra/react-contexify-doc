@@ -25,15 +25,16 @@ Hey 👋, you like those dropdowns? They are accessible and built with react-con
 ## Features
 
 - Easy to set up for real, you can make it work in less than 10sec!
-- Super easy to customize
+- Super easy to customize thanks to css variables 💅
 - Custom position
 - Sub menu support
+- Does not go offscreen
 - Dark mode 🌒
-- Keyboard navigation
+- Keyboard navigation + keyboard shortcut!
 - Built-in animations
-- Easy to test !
+- Easy to test!
 - Written in Typescript 💪
-- And much more !
+- Tiny! (3k gzipped)
 
 ## Contribute
 
