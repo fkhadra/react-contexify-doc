@@ -37,31 +37,31 @@ Below, a list of the CSS classes used(classes used for animation and theme are o
 ```css
 .contexify {}
 
-.contexify__submenu--is-open,
-.contexify__submenu--is-open > .contexify__item__content {}
+.contexify_submenu-isOpen,
+.contexify_submenu-isOpen > .contexify_itemContent {}
 
-.contexify__submenu--is-open > .contexify__submenu {}
+.contexify_submenu-isOpen > .contexify_submenu {}
 
-.contexify .contexify__submenu {}
+.contexify .contexify_submenu {}
 
-.contexify__submenu-arrow {}
+.contexify_submenu-arrow {}
 
-.contexify__separator {}
+.contexify_separator {}
 
-.contexify__will-leave--disabled {}
+.contexify_will-leave--disabled {}
 
-.contexify__item {}
+.contexify_item {}
 
-.contexify__item:not(.contexify__item--disabled):focus {}
+.contexify_item:not(.contexify_item-disabled):focus {}
 
-.contexify__item:not(.contexify__item--disabled):hover > .contexify__item__content,
-.contexify__item:not(.contexify__item--disabled):focus > .contexify__item__content {}
+.contexify_item:not(.contexify_item-disabled):hover > .contexify_itemContent,
+.contexify_item:not(.contexify_item-disabled):focus > .contexify_itemContent {}
 
-.contexify__item:not(.contexify__item--disabled):hover > .contexify__submenu {}
+.contexify_item:not(.contexify_item-disabled):hover > .contexify_submenu {}
 
-.contexify__item--disabled {}
+.contexify_item-disabled {}
 
-.contexify__item__content {}
+.contexify_itemContent {}
 
 ```
 
