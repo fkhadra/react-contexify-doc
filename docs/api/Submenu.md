@@ -20,7 +20,7 @@ import { Menu, Submenu, Item } from "react-contexify";
 >
   <Item>item 1</Item>
   <Item>item 2</Item>
-  <Submenu labe="a submenu" arrow="🚀">
+  <Submenu label="a submenu" arrow="🚀">
     <Item>item 1</Item>
     <Item>item 2</Item>
   </Submenu>
